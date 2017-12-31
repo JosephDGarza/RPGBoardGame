@@ -1,0 +1,47 @@
+package com.board.controller;
+
+
+public abstract class  Character {
+	String name;
+	int hp;
+
+	
+	public Character() {
+		
+	}
+
+
+	public Character(String name, int hp) {
+		super();
+		this.name = name;
+		this.hp = hp;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public int getHp() {
+		return hp;
+	}
+
+
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+	
+	
+	
+	
+	
+	
+	
+
+}
