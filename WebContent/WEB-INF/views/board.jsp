@@ -7,7 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="battle" method="POST">
 ${Myboard}
-${stats}
+${playerName}
+${playerCurrentHp} / ${playerHp} hp <br>
+${playerStr} Str<br>
+${playerCrit} Crit<br>
+${playerDodge} Dodge<br>
+
+<input type="hidden" id="playerName" name="playerName" value="${playerName}">
+<input type="hidden" id="playerCurrentHp" name="playerCurrentHp" value="${playerCurrentHp}">
+<input type="hidden" id="playerHp" name="playerHp" value="${playerHp}">
+<input type="hidden" id="playerStr" name="playerStr" value="${playerStr}">
+<input type="hidden" id="playerCrit" name="playerCrit" value="${playerCrit}">
+<input type="hidden" id="playerDodge" name="playerDodge" value="${playerDodge}">
+<input type="submit" value="battle the frog"> 
+</form>
 </body>
 </html>
