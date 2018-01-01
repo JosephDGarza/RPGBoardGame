@@ -70,12 +70,14 @@
 	var displayehp = document.getElementById("enemyhp");
 	displayehp.innerHTML = enemyhp;
 
-	function attack(playerhp, playerstr, displayphp, enemyhp, enemystr,
-			displayehp) {
+	function attack() {
+			
 		displayphp.innerHTML = playerhp - enemystr;
 		displayehp.innerHTML = enemyhp - playerstr;
+  	    console.log(displayphp.innerHTML);
 		playerhp = playerhp - enemystr;
 		enemyhp = enemyhp - playerstr;
+        console.log(playerhp);
 	
 	return enemyhp, playerhp, displayphp, displayehp;
 	}
