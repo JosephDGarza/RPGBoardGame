@@ -73,8 +73,11 @@ ${crit} <br>
 
 </div>
 
+
+
 <h2>Summary of your character:</h2>
 <p id="cname">Character name</p>
+
 <p>HP <span id="hp"></span></p>
 <p>Str <span id="str"></span></p>
 <p>Crit <span id="crit"></span>%</p>

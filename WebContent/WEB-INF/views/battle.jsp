@@ -37,6 +37,17 @@
 		<div class="div3">
 			<input type="button" value="punch"
 				onclick="attack(playerhp, playerstr, displayphp, enemyhp, enemystr, displayehp)">
+
+			<h2 id="result"></h2>
+			<form action="boards" method="POST">
+			<input type="hidden" id="playerName" name="playerName" value="${playerName}">
+<input type="hidden" id="playerCurrentHp" name="playerCurrentHp">
+<input type="hidden" id="playerHp" name="playerHp" value="${playerHp}">
+<input type="hidden" id="playerStr" name="playerStr" value="${playerStr}">
+<input type="hidden" id="playerCrit" name="playerCrit" value="${playerCrit}">
+<input type="hidden" id="playerDodge" name="playerDodge" value="${playerDodge}">
+			<span id ="continue"></span>
+			</form>
 		</div>
 
 
@@ -57,6 +68,8 @@
 	<input type="hidden" id="estr" name="estr" value="${enemyStr}">
 
 
+
+
 </body>
 
 <script type="text/javascript">
@@ -71,15 +84,40 @@
 	displayehp.innerHTML = enemyhp;
 
 	function attack() {
+		if (playerhp > 0) {
+			if (enemyhp > 0) {
+
 			
-		displayphp.innerHTML = playerhp - enemystr;
-		displayehp.innerHTML = enemyhp - playerstr;
-  	    console.log(displayphp.innerHTML);
-		playerhp = playerhp - enemystr;
-		enemyhp = enemyhp - playerstr;
-        console.log(playerhp);
-	
-	return enemyhp, playerhp, displayphp, displayehp;
+
+				if (enemyhp - playerstr <= 0) {
+					displayehp.innerHTML = 0;
+					var win = "You have won!";
+					var next = "<input type=\"submit\" value=\"Continue Forward\">";
+					document.getElementById("playerCurrentHp").value = playerhp;
+					document.getElementById("result").innerHTML = win;
+					document.getElementById("continue").innerHTML = next;
+				} 
+				
+				
+				else {
+					displayehp.innerHTML = enemyhp - playerstr;
+					playerhp = playerhp - enemystr;
+					displayphp.innerHTML = playerhp;
+					if (playerhp < 1) {
+					displayphp.innerHTML = 0;
+						var death = "You have died";
+
+						document.getElementById("result").innerHTML = death;
+					}
+				}
+					
+				console.log(displayphp.innerHTML);
+
+				enemyhp = enemyhp - playerstr;
+				console.log(playerhp);
+			}
+		}
+
 	}
 </script>
 </html>

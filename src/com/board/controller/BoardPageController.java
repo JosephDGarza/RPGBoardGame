@@ -22,7 +22,7 @@ public class BoardPageController {
 		crit = crit +2;
 		
 		 Player player = new Player();
-		player.setName(name);
+		 player.setName(name);
 		 player.setHp(hp);
 		 player.setCrit(crit);
 		 player.setDodge(dodge);
