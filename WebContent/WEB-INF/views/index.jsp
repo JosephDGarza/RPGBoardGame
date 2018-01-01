@@ -46,74 +46,119 @@
 <h1>this is the home page</h1>
 <p> You may spend up to 10 points to increase your characters stats. These stats will also determine how your character levels up. So choose wisely.</p>
 <p>By default your character starts with:</p>
-<p>100 hp</p>
-<p>3 str</p>
-<p>2% crit</p>
-<p>2% dodge</p>
+<p>HP 100 </p>
+<p>Str 3 </p>
+<p>Crit 2% </p>
+<p>Dodge 2% </p>
 <br>
+<form onsubmit="myFunction();"action="board" method="POST">
+<h3>You have: <span id= "points"> </span> points left to spend</h3>
+<input type="text" id="name" name="name" placeholder="Hero name" aria-label="Hero name" oninput="characterName()" required>
 <div class="slidecontainer">
-<input type="range" class="slider" id="myRange" name="hp" min = "0" max ="10" value="0">
-<p>hp: <span id="demo"></span></p>
 ${hp}<br>
-<input type="range" class="slider" id="myRange1" name="str" min = "0" max ="10" value="0">
-<p>str: <span id="demo1"></span></p>
+<input type="range" class="slider" id="myRange" name="hp" min = "0" max ="10" value="0">
+<h4>HP:</h4><p><span id="demo"></span></p>
+
 ${str}<br>
-<input type="range" class="slider" id="myRange2" name="crit" min = "0" max ="10" value="0">
-<p>crit: <span id="demo2"></span>%</p>
+<input type="range" class="slider" id="myRange1" name="str" min = "0" max ="10" value="0">
+<h4>Str:</h4><p><span id="demo1"></span></p>
+
 ${crit} <br>
+<input type="range" class="slider" id="myRange2" name="crit" min = "0" max ="10" value="0">
+<h4>Crit:</h4> <p><span id="demo2"></span>%</p>
+
+ ${dodge}<br>
 <input type="range" class="slider" id="myRange3" name="dodge" min = "0" max ="10" value="0">
-<p>dodge: <span id="demo3"></span>%</p>
-${dodge}<br>
+<div><h4>Dodge:</h4><p><span id="demo3"></span>%</p></div>
+
 </div>
 
 <h2>Summary of your character:</h2>
-<p>hp <span id="hp"></span></p>
-<p>str <span id="str"></span></p>
-<p>crit <span id="crit"></span></p>
-<p>dodge <span id="dodge"></span></p>
-<input type="submit" value="submit">
+<p id="cname">Character name</p>
+<p>HP <span id="hp"></span></p>
+<p>Str <span id="str"></span></p>
+<p>Crit <span id="crit"></span>%</p>
+<p>Dodge <span id="dodge"></span>%</p>
+<input type="submit" value="Create Character">
+<p id="demo"></p>
+</form>
 </body>
 <script>
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-var slider1 = document.getElementById("myRange1");
-var output1 = document.getElementById("demo1");
-var slider2 = document.getElementById("myRange2");
-var output2 = document.getElementById("demo2");
-var slider3 = document.getElementById("myRange3");
-var output3 = document.getElementById("demo3");
+function characterName() {
+var name = document.getElementById("name").value;
+document.getElementById("cname").innerHTML = "Character name: " + name;
+}
+
+
+
+var points = document.getElementById("points")
+
+var hpslider = document.getElementById("myRange");
+var hpoutput = document.getElementById("demo");
+var strslider = document.getElementById("myRange1");
+var stroutput = document.getElementById("demo1");
+var critslider = document.getElementById("myRange2");
+var critoutput = document.getElementById("demo2");
+var dodgeslider = document.getElementById("myRange3");
+var dodgeoutput = document.getElementById("demo3");
 var hp =  document.getElementById("hp");
 var str =  document.getElementById("str");
 var crit =  document.getElementById("crit");
 var dodge =  document.getElementById("dodge");
-output.innerHTML = slider.value;
-output1.innerHTML = slider1.value;
-output2.innerHTML = slider2.value;
-output3.innerHTML = slider3.value;
-hp.innerHTML = slider.value * 25 + 100;
-str.innerHTML = slider1.value + 3;
-crit.innerHTML = slider2.value + 2;
-dodge.innerHTML = slider3.value + 2;
 
-slider.oninput = function() {
-output.innerHTML = this.value;
+
+points.innerHTML = 10 /* - hpslider.value - strslider.value - critslider.value - dodgeslider.value; */
+hpoutput.innerHTML = hpslider.value;
+stroutput.innerHTML = strslider.value;
+critoutput.innerHTML = critslider.value;
+dodgeoutput.innerHTML = dodgeslider.value;
+hp.innerHTML = hpslider.value * 25 + 100;
+str.innerHTML = strslider.value*1 + 3;
+crit.innerHTML = critslider.value*1 + 2;
+dodge.innerHTML = dodgeslider.value*1 + 2;
+
+
+hpslider.oninput = function() {
+hpoutput.innerHTML = this.value;
 hp.innerHTML = this.value * 25 + 100;
+points.innerHTML = 10 - this.value;
 }
 
-slider1.oninput = function() {
-output1.innerHTML = this.value;
+strslider.oninput = function() {
+stroutput.innerHTML = this.value;
 str.innerHTML = this.value *1 + 3;
-  
+points.innerHTML = 10 - this.value;
 }
-slider2.oninput = function() {
-  output2.innerHTML = this.value;
+critslider.oninput = function() {
+  critoutput.innerHTML = this.value;
   crit.innerHTML = this.value *1 + 2;
+points.innerHTML = 10 - this.value;
 }
-slider3.oninput = function() {
-  output3.innerHTML = this.value;
+dodgeslider.oninput = function() {
+  dodgeoutput.innerHTML = this.value;
   dodge.innerHTML = this.value *1 + 2;
+  points.innerHTML = 10 - this.value;
 }
 
+function myFunction() {
+var hpslider = document.getElementById("myRange").value;
+var strslider = document.getElementById("myRange1").value;
+var critslider = document.getElementById("myRange2").value;
+var dodgeslider = document.getElementById("myRange3").value;
+
+if (hpslider*1 + strslider*1 + critslider*1  + dodgeslider*1  > 10 || hpslider*1 + strslider*1 + critslider*1  + dodgeslider*1 < 10) {
+
+var check = hpslider*1 + strslider*1 + critslider*1  + dodgeslider*1;
+
+alert ("You must spend ONLY 10 points. No less or more. You have spent: " + check);
+	event.preventDefault();
+    returnToPreviousPage();
+    return false;
+  }
+
+  alert("Character created!");
+  return true;
+}
 
 
 

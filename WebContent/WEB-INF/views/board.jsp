@@ -8,5 +8,6 @@
 </head>
 <body>
 ${Myboard}
+${stats}
 </body>
 </html>

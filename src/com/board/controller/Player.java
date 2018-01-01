@@ -54,6 +54,14 @@ public class Player extends Character {
 	public void setAbility(String ability) {
 		this.ability = ability;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Player [str=" + str + ", dodge=" + dodge + ", crit=" + crit + ", mana=" + mana + ", ability=" + ability
+				+ "]";
+	}
 	
 	
 }

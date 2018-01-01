@@ -6,20 +6,31 @@ public class Enemy extends Character {
 	int dodge;
 	int crit;
 	int mana;
+	String imgurl;
 	
 	public Enemy() {
 		
 	}
 	
-	public Enemy(String weakness, int str, int dodge, int crit, int mana) {
+	public Enemy(String weakness, int str, int dodge, int crit, int mana, String imgurl) {
 		super();
 		this.weakness = weakness;
 		this.str = str;
 		this.dodge = dodge;
 		this.crit = crit;
 		this.mana = mana;
+		this.imgurl = imgurl;
 	}
 	
+	
+	public String getImgurl() {
+		return imgurl;
+	}
+
+	public void setImgurl(String imgurl) {
+		this.imgurl = imgurl;
+	}
+
 	public String getWeakness() {
 		return weakness;
 	}

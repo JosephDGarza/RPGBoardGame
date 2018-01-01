@@ -4,6 +4,7 @@ package com.board.controller;
 public abstract class  Character {
 	String name;
 	int hp;
+	int currentHp;
 
 	
 	public Character() {
@@ -11,10 +12,21 @@ public abstract class  Character {
 	}
 
 
-	public Character(String name, int hp) {
+	public Character(String name, int hp, int currentHp) {
 		super();
 		this.name = name;
 		this.hp = hp;
+		this.currentHp = currentHp;
+	}
+
+
+	public int getCurrentHp() {
+		return currentHp;
+	}
+
+
+	public void setCurrentHp(int currentHp) {
+		this.currentHp = currentHp;
 	}
 
 
@@ -35,6 +47,12 @@ public abstract class  Character {
 
 	public void setHp(int hp) {
 		this.hp = hp;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Character [name=" + name + ", hp=" + hp + ", currentHp=" + currentHp + "]";
 	}
 	
 	
