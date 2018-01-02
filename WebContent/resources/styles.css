@@ -1,0 +1,6 @@
+html {
+	background-image: url("./images/boardstart.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}

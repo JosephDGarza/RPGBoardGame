@@ -39,7 +39,7 @@ public class Enemies {
 		
 		EnemyDto smiley = new EnemyDto();
 		smiley.setHp(13);
-		smiley.setCurrentHp(35);
+		smiley.setCurrentHp(13);
 		smiley.setDodge(2);
 		smiley.setName("Smiley");
 		smiley.setStr(15);

@@ -36,16 +36,26 @@
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Battle</title>
-<img
-	src="http://img2.wikia.nocookie.net/__cb20141220023915/villains/images/e/ed/King_Wart.jpg"
-	width="500" height="500">
+
 </head>
 <body>
+${imgurl}
+
 	<div>
+	
+	
+	<input type="hidden" id="id" name="id" value="${id}">
+<input type="hidden" id="imgurl" name="imgurl" value="${imgurl}">
+<input type="hidden" id="name" name="name" value="${name}">
+<input type="hidden" id="str" name="str" value="${str}">
+<input type="hidden" id="hp" name="hp" value="${hp}">
+<input type="hidden" id="currentHp" name="currentHp" value="${currentHp}">
+
+
 		<div class="div1">
 			<h3>Enemy stats</h3>
-			<br> <span id="enemyhp"></span>/${enemyHp} Frog King's Hp<br>
-			${enemyStr} Str
+			<br> <span id="enemyhp"></span>/${hp} ${name}'s Hp<br>
+			${str} Str
 		</div>
 
 <div class="div2">
@@ -83,8 +93,8 @@
 	<input type="hidden" id="php" name="php" value="${playerCurrentHp}">
 	<input type="hidden" id="pstr" name="pstr" value="${playerStr}">
 
-	<input type="hidden" id="ehp" name="ehp" value="${enemyCurrentHp}">
-	<input type="hidden" id="estr" name="estr" value="${enemyStr}">
+	<input type="hidden" id="ehp" name="ehp" value="${currentHp}">
+	<input type="hidden" id="estr" name="estr" value="${str}">
 
 
 
