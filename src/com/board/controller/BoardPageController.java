@@ -5,6 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+import com.dto.PlayerDto;
+
 @Controller
 public class BoardPageController {
 
@@ -21,7 +24,7 @@ public class BoardPageController {
 		dodge = dodge +2;
 		crit = crit +2;
 		
-		 Player player = new Player();
+		 PlayerDto player = new PlayerDto();
 		 player.setName(name);
 		 player.setHp(hp);
 		 player.setCrit(crit);

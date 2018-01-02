@@ -1,22 +1,38 @@
-package com.board.controller;
+package com.dto;
 
+import java.io.Serializable;
 
-public abstract class  Character {
-	String name;
-	int hp;
-	int currentHp;
+public abstract class  CharacterDto implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int id;
+	private String name;
+	private int hp;
+	private int currentHp;
 
 	
-	public Character() {
+	public CharacterDto() {
 		
 	}
 
 
-	public Character(String name, int hp, int currentHp) {
+	public CharacterDto(String name, int hp, int currentHp) {
 		super();
 		this.name = name;
 		this.hp = hp;
 		this.currentHp = currentHp;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

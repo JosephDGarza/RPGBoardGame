@@ -32,7 +32,12 @@
 			${enemyStr} Str
 		</div>
 
-
+<div class="div2">
+			<h3>Player stats</h3>
+			<br> ${playerName}<br> <span id="playerhp"></span> /
+			${playerHp} hp <br> ${playerStr} Str<br> ${playerCrit} Crit<br>
+			${playerDodge} Dodge<br>
+		</div>
 
 		<div class="div3">
 			<input type="button" value="punch"
@@ -51,12 +56,7 @@
 		</div>
 
 
-		<div class="div2">
-			<h3>Player stats</h3>
-			<br> ${playerName}<br> <span id="playerhp"></span> /
-			${playerHp} hp <br> ${playerStr} Str<br> ${playerCrit} Crit<br>
-			${playerDodge} Dodge<br>
-		</div>
+		
 	</div>
 
 

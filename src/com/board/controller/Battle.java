@@ -5,6 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+import com.dto.EnemyDto;
+
 @Controller
 public class Battle {
 	
@@ -16,7 +19,7 @@ public class Battle {
 		
 		 System.out.println(playerCurrentHp + " " + playerHp + " " +playerStr + " " + playerCrit + " " + playerDodge);
 		
-		Enemy frog = new Enemy();
+		 EnemyDto frog = new EnemyDto();
 		frog.setHp(35);
 		frog.setCurrentHp(35);
 		frog.setDodge(2);

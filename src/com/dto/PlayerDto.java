@@ -1,19 +1,25 @@
-package com.board.controller;
+package com.dto;
 
-public class Player extends Character {
-	int str;
-	int dodge;
-	int crit;
-	int mana;
-	String ability;
+import java.io.Serializable;
+
+public class PlayerDto extends CharacterDto implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int str;
+	private int dodge;
+	private int crit;
+	private int mana;
+	private String ability;
 	
-	public Player(){
+	public PlayerDto(){
 		
 	}
 	
 	
 	
-	public Player(int str, int dodge, int crit, int mana, String ability) {
+	public PlayerDto(int str, int dodge, int crit, int mana, String ability) {
 		super();
 		this.str = str;
 		this.dodge = dodge;

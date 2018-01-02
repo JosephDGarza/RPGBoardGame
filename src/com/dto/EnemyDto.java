@@ -1,18 +1,25 @@
-package com.board.controller;
+package com.dto;
 
-public class Enemy extends Character {
-	String weakness;
-	int str;
-	int dodge;
-	int crit;
-	int mana;
-	String imgurl;
+import java.io.Serializable;
+
+public class EnemyDto extends CharacterDto implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
-	public Enemy() {
+	private String weakness;
+	private int str;
+	private int dodge;
+	private int crit;
+	private int mana;
+	private String imgurl; 
+	
+	public EnemyDto() {
 		
 	}
 	
-	public Enemy(String weakness, int str, int dodge, int crit, int mana, String imgurl) {
+	public EnemyDto(String weakness, int str, int dodge, int crit, int mana, String imgurl) {
 		super();
 		this.weakness = weakness;
 		this.str = str;
