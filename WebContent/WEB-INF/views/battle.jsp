@@ -80,6 +80,8 @@
 <input type="hidden" id="playerCrit" name="playerCrit" value="${playerCrit}">
 <input type="hidden" id="playerDodge" name="playerDodge" value="${playerDodge}">
 <input type="hidden" id="diceroll" name="diceroll" value="${diceroll}">
+<input type="hidden" id="tile" name="tile" value="${diceroll}">
+<input type="hidden" id="rollCount" name="rollCount" value=0>
 			<span id ="continue"></span>
 			</form>
 <div class="info_header">

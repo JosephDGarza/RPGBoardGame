@@ -40,9 +40,12 @@ ${congrats}
 			${playerDodge} Dodge<br>
 		</div>
 		<input type="hidden" value="You rolled a ${dice}" id="rolled">
-		<input type="hidden" value="${diceroll} is the square you will be on" id="roll">
+		<input type="hidden" value="${diceroll}" id="dicerolled">
+		<input type="hidden" value="${tile} is the square you will be on" id="roll">
 		
 		<input type= "button" value="roll" onclick="rollFunction()">
+		<span id="win"></span>
+		
 		<span id="rollDisplay"></span>
 		
 		<form action="battles" method="POST">
@@ -53,6 +56,8 @@ ${congrats}
 <input type="hidden" id="playerStr" name="playerStr" value="${playerStr}">
 <input type="hidden" id="playerCrit" name="playerCrit" value="${playerCrit}">
 <input type="hidden" id="playerDodge" name="playerDodge" value="${playerDodge}">
+<input type="hidden" id="tile"	name="tile" value="${tile}">
+<input type="hidden" id="rollCount" name="rollCount" value="${rollCount}">
 
 <input type="hidden" id="diceroll" name="diceroll" value="${diceroll}">
 		</form>
@@ -67,11 +72,19 @@ ${congrats}
 function rollFunction() {
 var rolled = document.getElementById("rolled").value
 var roll = document.getElementById("roll").value;
+var dice = document.getElementById("dicerolled").value;
 var battle = "<input type=\"submit\" value=\"Continue Forward\">";
 		
 		
 		document.getElementById("rollDisplay").innerHTML = "<br>" + rolled + "<br>" + roll;
 		document.getElementById("buttonAppear").innerHTML = battle;
+		if(dice > 17 && dice < 34){
+		document.getElementById("win").innerHTML = "<br>" + "looks like you made it around the board once. Now for round 2, this one will be harder. Enemies have recieved a 10% stat increase." + "<br>";
+		}
+		if(dice > 34){
+		document.getElementById("win").innerHTML = "<br>" + "looks like you made it around the board twice. Now for round 3, this one will be harder. Enemies received another 10% on top of their existing 10% from the previous round" + "<br>";
+		}
+		
 				
 			
 				} 

@@ -137,7 +137,10 @@ ${imgurl}
 <input type="hidden" id="playerStr" name="playerStr">
 <input type="hidden" id="playerCrit" name="playerCrit" value="${playerCrit}">
 <input type="hidden" id="playerDodge" name="playerDodge" value="${playerDodge}">
-<input type="hidden" id="diceroll" name="diceroll">
+<input type="hidden" id="tile" name="tile" value="${tile}">
+<input type="hidden" id="diceroll" name="diceroll" >
+<input type="hidden" id="rollCount" name="rollCount" value="${rollCount}">
+
 			<span id ="continue"></span>
 			</form>
 <div class="info_header">
@@ -170,6 +173,7 @@ ${imgurl}
 	<input type="hidden" id="pmaxhp" name="pmaxhp" value="${playerHp}">
 	<input type="hidden" id="pstr" name="pstr" value="${playerStr}">
 	<input type="hidden" id="pdodge" name="pdodge" value="${playerDodge}">
+	<input type="hidden" id="score" name="score" value="${rollCount}">
 
 	<input type="hidden" id="ename" name="ename" value="${name}">
 	<input type="hidden" id="ehp" name="ehp" value="${currentHp}">
@@ -179,12 +183,14 @@ ${imgurl}
 	<input type="hidden" id="emiss" name="emiss" value="${miss}">
 	<input type="hidden" id="emissScript" name="emissScript" value="${missScript}">
 	
+	
 
 
 
 </body>
 
 <script type="text/javascript">
+	var score = document.getElementById("score").value;
 	var pcrit = document.getElementById("pCrit").value;
 	var pdodge = document.getElementById("pdodge").value;
 	var diceroll = document.getElementById("dice").value;
@@ -298,7 +304,7 @@ ${imgurl}
 					<!-- displayphp.innerHTML = 0; -->
 					pbar = "<li class=\"greenbright\" style=\"width: 0%;\">" + "0" + "/" + pmaxhp + "</li>";
 					document.getElementById("pbar").innerHTML = pbar;
-						var death = "You have died";
+						var death = "You have died. <br> You rolled " + score + " times before losing.";
 
 						document.getElementById("result").innerHTML = death;
 					}

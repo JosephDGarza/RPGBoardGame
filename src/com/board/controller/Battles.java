@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dto.EnemyDto;
 
-
-
 @Controller
 public class Battles {
 
@@ -25,12 +23,17 @@ public class Battles {
 	public String battle(Model model, @RequestParam(value = "playerName") String playerName,
 			@RequestParam(value = "playerCurrentHp") int playerCurrentHp,
 			@RequestParam(value = "playerHp") int playerHp, @RequestParam(value = "playerStr") int playerStr,
-			@RequestParam(value = "playerCrit") int playerCrit, @RequestParam(value = "playerDodge") int playerDodge, @RequestParam(value="diceroll") int diceroll) {
+			@RequestParam(value = "playerCrit") int playerCrit, @RequestParam(value = "playerDodge") int playerDodge,
+			@RequestParam(value = "diceroll") int diceroll, @RequestParam(value = "tile") int tile,
+			@RequestParam(value = "rollCount") int rollCount) {
 		// public String battle(Model model) {
-		
-//		@RequestParam(value = "id") int id, @RequestParam(value = "imgurl") String imgurl,
-//		@RequestParam(value = "name") String name, @RequestParam(value = "str") String str,
-//		@RequestParam(value = "hp") String hp, @RequestParam(value = "currentHp") String currentHp
+
+		// @RequestParam(value = "id") int id, @RequestParam(value = "imgurl") String
+		// imgurl,
+		// @RequestParam(value = "name") String name, @RequestParam(value = "str")
+		// String str,
+		// @RequestParam(value = "hp") String hp, @RequestParam(value = "currentHp")
+		// String currentHp
 		System.out.println("diceroll");
 		String congrats = "<h1>Congratulations, you have defeated the frog king!</h1>";
 		Configuration cfg = new Configuration();
@@ -40,25 +43,20 @@ public class Battles {
 		Transaction tx = s.beginTransaction();
 
 		// System.out.println(tag);
-		
-		
-		
-		
-		
+
 		int id = 0;
 		String imgurl = "";
 		String name = "";
-		int str  = 0;
+		int str = 0;
 		int hp = 0;
-		int currentHp =0;
+		int currentHp = 0;
 		int miss = 0;
 		String missScript = "";
 		String attack = "";
 		Object[] obj = new Object[9];
 
-
-		
-		String query = "select id,imgurl,name,str,hp,currentHp,miss,missScript,attack from EnemyDto WHERE id = '" + diceroll +"'";
+		String query = "select id,imgurl,name,str,hp,currentHp,miss,missScript,attack from EnemyDto WHERE id = '"
+				+ tile + "'";
 
 		System.out.println(query);
 		Query q2 = s.createQuery(query);
@@ -83,15 +81,25 @@ public class Battles {
 			missScript = (String) obj[7];
 			attack = (String) obj[8];
 			
+			if (diceroll > 17) {
+				str = (int) (str*1.10);
+				hp = (int) (hp *1.10);
+				currentHp = (int) (currentHp*1.10);
+				
+			}
+			
+			if (diceroll > 34) {
+				str = (int) (str*1.10);
+				hp = (int) (hp *1.10);
+				currentHp = (int) (currentHp*1.10);
+			}
+
 			System.out.println(name);
 			list.add(new EnemyDto(str, imgurl, id, name, hp, currentHp, attack, miss, missScript));
 		}
-		
-		
-	
+
 		s.flush();
 		s.close();
-		
 
 		model.addAttribute("playerName", playerName);
 		model.addAttribute("playerHp", playerHp);
@@ -100,8 +108,9 @@ public class Battles {
 		model.addAttribute("playerStr", playerStr);
 		model.addAttribute("playerDodge", playerDodge);
 		model.addAttribute("diceroll", diceroll);
+		model.addAttribute("tile",tile);
+		model.addAttribute("rollCount",rollCount);
 
-		
 		model.addAttribute("id", id);
 		model.addAttribute("imgurl", imgurl);
 		model.addAttribute("name", name);
@@ -111,8 +120,7 @@ public class Battles {
 		model.addAttribute("attack", attack);
 		model.addAttribute("miss", miss);
 		model.addAttribute("missScript", missScript);
-		
+
 		return "battles";
 	}
 }
-
