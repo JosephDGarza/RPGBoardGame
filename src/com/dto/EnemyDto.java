@@ -12,7 +12,10 @@ public class EnemyDto extends CharacterDto implements Serializable{
 	private int str;
 	private int dodge;
 	private int mana;
+	private int miss;
+	private String missScript;
 	private String imgurl; 
+	private String attack;
 //	private int id;
 //	private String name;
 //	private int hp;
@@ -44,6 +47,29 @@ public class EnemyDto extends CharacterDto implements Serializable{
 		this.setCurrentHp(currentHp);
 		this.setId(id);
 	}
+	public EnemyDto(int str, String imgurl, int id, String name, int hp, int currentHp, String attack) {
+		super();
+		this.str = str;
+		this.imgurl = imgurl;
+		this.setHp(currentHp);
+		this.setName(name);
+		this.setCurrentHp(currentHp);
+		this.setId(id);
+		this.attack = attack;
+	}
+	public EnemyDto(int str, String imgurl, int id, String name, int hp, int currentHp, String attack, int miss, String missScript) {
+		super();
+		this.str = str;
+		this.imgurl = imgurl;
+		this.setHp(currentHp);
+		this.setName(name);
+		this.setCurrentHp(currentHp);
+		this.setId(id);
+		this.attack = attack;
+		this.miss= miss;
+		this.missScript = missScript;
+		
+	}
 
 
 
@@ -73,35 +99,45 @@ public class EnemyDto extends CharacterDto implements Serializable{
 		this.dodge = dodge;
 		this.mana = mana;
 		this.imgurl = imgurl;
-//		this.id = id;
-//		this.name = name;
-//		this.hp = hp;
-//		this.currentHp = currentHp;
 	}
-//	public int getId() {
-//		return id;
-//	}
-//	public void setId(int id) {
-//		this.id = id;
-//	}
-//	public String getName() {
-//		return name;
-//	}
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//	public int getHp() {
-//		return hp;
-//	}
-//	public void setHp(int hp) {
-//		this.hp = hp;
-//	}
-//	public int getCurrentHp() {
-//		return currentHp;
-//	}
-//	public void setCurrentHp(int currentHp) {
-//		this.currentHp = currentHp;
-//	}
+
+	
+	public String getMissScript() {
+		return missScript;
+	}
+
+
+
+	public void setMissScript(String missScript) {
+		this.missScript = missScript;
+	}
+
+
+
+	public String getAttack() {
+		return attack;
+	}
+
+
+
+	public int getMiss() {
+		return miss;
+	}
+
+
+
+	public void setMiss(int miss) {
+		this.miss = miss;
+	}
+
+
+
+	public void setAttack(String attack) {
+		this.attack = attack;
+	}
+
+
+
 	public String getImgurl() {
 		return imgurl;
 	}

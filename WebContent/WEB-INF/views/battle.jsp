@@ -48,8 +48,7 @@
 	
 	
 	
-	<img src="https://s3.amazonaws.com/indieobscura-www/assets/editorial/2017/04/little-nightmares-monsters-the-janitor.png"
-	width="500" height="500">
+
 	
 	</div>
 </head>

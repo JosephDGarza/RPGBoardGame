@@ -36,6 +36,15 @@
 		<property name="currentHp">
 			<column name="currentHp" sql-type="int(255)"></column>
 		</property>
+				<property name="miss">
+			<column name="miss" sql-type="int(255)"></column>
+		</property>
+				<property name="missScript">
+			<column name="missScript" sql-type="varchar(255)"></column>
+		</property>
+				<property name="attack">
+			<column name="attack" sql-type="varchar(255)"></column>
+		</property>
 
 		
 		
