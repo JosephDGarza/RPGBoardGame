@@ -22,10 +22,12 @@ public class Board {
 	@RequestMapping("boards")
 	public String boards(Model model, @RequestParam(value = "playerName") String playerName, @RequestParam(value = "playerHp") int playerHp,
 			@RequestParam(value = "playerCurrentHp")int playerCurrentHp, @RequestParam(value = "playerStr") int playerStr, @RequestParam(value = "playerCrit") int playerCrit,
-			@RequestParam(value = "playerDodge") int playerDodge) {
-		
-		int diceroll = 0;
-		diceroll = (int) (Math.random() * 3 + 1);
+			@RequestParam(value = "playerDodge") int playerDodge, @RequestParam(value="diceroll") int diceroll) {
+//		System.out.println(diceroll);
+		int dice = 0;
+		dice = (int) (Math.random() * 5 + 1);
+		diceroll = diceroll + dice;
+		System.out.println(dice);
 		System.out.println(diceroll);
 
 //		System.out.println(name);
@@ -40,6 +42,7 @@ public class Board {
 		model.addAttribute("playerStr", playerStr);
 		model.addAttribute("playerDodge", playerDodge);
 		
+		model.addAttribute("dice", dice);
 		model.addAttribute("diceroll", diceroll);
 		
 //		model.addAttribute("id", id);

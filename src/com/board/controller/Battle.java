@@ -25,6 +25,7 @@ public class Battle {
 		frog.setDodge(2);
 		frog.setName("Frog King");
 		frog.setStr(11);
+		frog.setId(0);
 		
 		
 		model.addAttribute("playerName", playerName);
@@ -38,6 +39,7 @@ public class Battle {
 		model.addAttribute("enemyHp", frog.getHp());
 		model.addAttribute("enemyCurrentHp", frog.getCurrentHp());
 		model.addAttribute("enemyStr", frog.getStr());
+		model.addAttribute("diceroll", frog.getId());
 		
 		
 		

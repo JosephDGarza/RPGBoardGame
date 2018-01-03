@@ -19,6 +19,11 @@ background-image:url("https://wallpaperdownload.xyz/wp-content/uploads/2016/10/r
 	background-size: cover;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
+	  color: rgb(242,252,255);
+    text-align: left;
+    font-style: italic;
+    font-weight:bolder;
+    font-size: 17px;
 }
 
 </style>
@@ -34,7 +39,8 @@ ${congrats}
 			${playerHp} hp <br> ${playerStr} Str<br> ${playerCrit} Crit<br>
 			${playerDodge} Dodge<br>
 		</div>
-		<input type="hidden" value="${diceroll}" id="roll">
+		<input type="hidden" value="You rolled a ${dice}" id="rolled">
+		<input type="hidden" value="${diceroll} is the square you will be on" id="roll">
 		
 		<input type= "button" value="roll" onclick="rollFunction()">
 		<span id="rollDisplay"></span>
@@ -51,7 +57,7 @@ ${congrats}
 <input type="hidden" id="diceroll" name="diceroll" value="${diceroll}">
 		</form>
 <div class="image">
-<img src="http://i1320.photobucket.com/albums/u524/JosephDGarza90/boardstart_zpsxxpymn0y.png">
+<img src="https://image.ibb.co/dhKngb/boardstart.png">
 </div>
 
 
@@ -59,10 +65,12 @@ ${congrats}
 
 <script type="text/javascript">
 function rollFunction() {
+var rolled = document.getElementById("rolled").value
 var roll = document.getElementById("roll").value;
 var battle = "<input type=\"submit\" value=\"Continue Forward\">";
 		
-		document.getElementById("rollDisplay").innerHTML = roll;
+		
+		document.getElementById("rollDisplay").innerHTML = "<br>" + rolled + "<br>" + roll;
 		document.getElementById("buttonAppear").innerHTML = battle;
 				
 			

@@ -79,6 +79,7 @@
 <input type="hidden" id="playerStr" name="playerStr" value="${playerStr}">
 <input type="hidden" id="playerCrit" name="playerCrit" value="${playerCrit}">
 <input type="hidden" id="playerDodge" name="playerDodge" value="${playerDodge}">
+<input type="hidden" id="diceroll" name="diceroll" value="${diceroll}">
 			<span id ="continue"></span>
 			</form>
 <div class="info_header">

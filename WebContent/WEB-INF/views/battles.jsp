@@ -104,10 +104,13 @@ ${imgurl}
 <input type="hidden" id="currentHp" name="currentHp" value="${currentHp}">
 
 
+
+
+
 		<div class="div1">
 			<h3>Enemy stats</h3>
 			<ul class="bargraph"><br> 
-			${name}'s Hp<span id="ebar"></span><span id="enemyhp"></span> / ${hp}
+			${name}'s Hp<span id="ebar"></span><span id="enemyhp"></span>
 			${str} Str
 			</ul>
 					
@@ -131,9 +134,10 @@ ${imgurl}
 			<input type="hidden" id="playerName" name="playerName" value="${playerName}">
 <input type="hidden" id="playerCurrentHp" name="playerCurrentHp">
 <input type="hidden" id="playerHp" name="playerHp" value="${playerHp}">
-<input type="hidden" id="playerStr" name="playerStr" value="${playerStr}">
+<input type="hidden" id="playerStr" name="playerStr">
 <input type="hidden" id="playerCrit" name="playerCrit" value="${playerCrit}">
 <input type="hidden" id="playerDodge" name="playerDodge" value="${playerDodge}">
+<input type="hidden" id="diceroll" name="diceroll">
 			<span id ="continue"></span>
 			</form>
 <div class="info_header">
@@ -159,24 +163,31 @@ ${imgurl}
 
 
 
-
-
+	<input type="hidden" id="pCrit" name="pCrit" value="${playerCrit}">
+	<input type="hidden" id="dice" name="dice" value="${diceroll}">
 	<input type="hidden" id="pname" name="pname" value="${playerName}">
 	<input type="hidden" id="php" name="php" value="${playerCurrentHp}">
 	<input type="hidden" id="pmaxhp" name="pmaxhp" value="${playerHp}">
 	<input type="hidden" id="pstr" name="pstr" value="${playerStr}">
+	<input type="hidden" id="pdodge" name="pdodge" value="${playerDodge}">
 
 	<input type="hidden" id="ename" name="ename" value="${name}">
 	<input type="hidden" id="ehp" name="ehp" value="${currentHp}">
 	<input type="hidden" id="emaxhp" name="emaxhp" value="${hp}">
 	<input type="hidden" id="estr" name="estr" value="${str}">
-
+	<input type="hidden" id="eattack" name="eattack" value="${attack}">
+	<input type="hidden" id="emiss" name="emiss" value="${miss}">
+	<input type="hidden" id="emissScript" name="emissScript" value="${missScript}">
+	
 
 
 
 </body>
 
 <script type="text/javascript">
+	var pcrit = document.getElementById("pCrit").value;
+	var pdodge = document.getElementById("pdodge").value;
+	var diceroll = document.getElementById("dice").value;
 	var pbar = 0;
 	var displaypbar = document.getElementById("pbar");
 	var pmaxhp = document.getElementById("pmaxhp").value
@@ -187,8 +198,10 @@ ${imgurl}
 	pbar = "<li class=\"greenbright\" style=\"width: " + (playerhp/pmaxhp)*100 + "%;\">" +playerhp + "/" + pmaxhp + "</li>";
 	<!--displayphp.innerHTML = playerhp;-->
 	displaypbar.innerHTML = pbar;
-
-
+	
+	var emissScript = document.getElementById("emissScript").value;
+	var emiss = document.getElementById("emiss").value;
+	var eattack = document.getElementById("eattack").value;
 	var ebar = 0;
 	var displayebar = document.getElementById("ebar");
 	var emaxhp = document.getElementById("emaxhp").value
@@ -200,41 +213,81 @@ ${imgurl}
 	<!-- displayehp.innerHTML = enemyhp; -->
 	displayebar.innerHTML = ebar;
 	
+	var elog= "";
 	
 	function attack() {
 		if (playerhp > 0) {
 			if (enemyhp > 0) {
-			
 			var plog= "";
-			plog += "You hit "+ enemyname +" for " + playerstr + "<br>";
+			 var crit = Math.floor((Math.random() * 100) + 1);
+			 if(crit <= pcrit){
+			plog = "You critically hit "+ enemyname +" for " + playerstr*2 + " damage!!! <br>";
 			document.getElementById("CombatLog").innerHTML += plog
+			enemyhp = enemyhp - playerstr*2;
+						 }
+						 
+						 if (crit > pcrit){
+						 plog = "You hit "+ enemyname +" for " + playerstr + " damage <br>";
+							document.getElementById("CombatLog").innerHTML += plog
+							enemyhp = enemyhp - playerstr;
+						 }
 			
-				if (enemyhp - playerstr <= 0) {
+			
+			
+				if (enemyhp <= 0) {
+				
+				if(enemyname == "Heal"){
+			playerhp = playerhp*1 + 50;
+				document.getElementById("CombatLog").innerHTML= "you have been healed for 50 health!"
+			}
+			if(enemyname == "Strength Bonus"){
+			playerstr = playerstr*1 +1;
+				document.getElementById("CombatLog").innerHTML = "you have gained 1 str"
+			
+			}
+			if(enemyname == "Time to go back some squares!"){
+			 var y = Math.floor((Math.random() * 4) + 1)
+			diceroll = diceroll*1 - y;
+			document.getElementById("CombatLog").innerHTML = "you were sent back " + y + " spaces to roll again";
+			
+			}
 					<!-- displayehp.innerHTML = 0; -->
 					ebar = "<li class=\"reddeep\" style=\"width: 0%;\">" + "0" + "/" + emaxhp + "</li>";
 					displayebar.innerHTML = ebar;
 					var win = "You have won!";
 					var next = "<input type=\"submit\" value=\"Continue Forward\">";
 					document.getElementById("playerCurrentHp").value = playerhp;
+					document.getElementById("playerStr").value = playerstr;
 					document.getElementById("result").innerHTML = win;
 					document.getElementById("continue").innerHTML = next;
+					document.getElementById("diceroll").value = diceroll;
 				} 
 				
 				
 				else {
-				
-				var elog= "";
+			
+				 
+				 var x = Math.floor((Math.random() * 100) + 1);
 					
-				 	ebar = "<li class=\"reddeep\" style=\"width: " + ((enemyhp - playerstr)/emaxhp*100) + "%;\">" +(enemyhp - playerstr) + "/" + emaxhp + "</li>";
+				 	ebar = "<li class=\"reddeep\" style=\"width: " + (enemyhp/emaxhp*100) + "%;\">" +enemyhp + "/" + emaxhp + "</li>";
 				displayebar.innerHTML = ebar;
 					<!-- displayehp.innerHTML = enemyhp - playerstr; -->
-					
+						
+						 console.log("this is x " +x );
+						 console.log(x <= emiss*1 + pdodge*1);
+						 if(x <= emiss*1 + pdodge*1){
+						 elog = emissScript + "<br><br>";
+					document.getElementById("CombatLog").innerHTML += elog;
+						 }
+						 if (x > emiss*1 + pdodge*1){
+						 
+						 
 					playerhp = playerhp - enemystr;
 					pbar = "<li class=\"greenbright\" style=\"width: " + (playerhp/pmaxhp)*100 + "%;\">" +playerhp + "/" + pmaxhp + "</li>";
 					document.getElementById("pbar").innerHTML = pbar;
 					console.log(pbar);
 					console.log(playerhp/pmaxhp);
-					elog += enemyname + " hit you for " + enemystr + "<br><br>";
+					elog = eattack + enemystr + " damage<br><br>";
 					document.getElementById("CombatLog").innerHTML += elog;
 					<!--displayphp.innerHTML = playerhp;-->
 					displaypbar.innerHTML = pbar;
@@ -250,12 +303,15 @@ ${imgurl}
 						document.getElementById("result").innerHTML = death;
 					}
 				}
+				
+			
 					
 				console.log(displayphp.innerHTML);
 
-				enemyhp = enemyhp - playerstr;
+				
 			
 				console.log(playerhp);
+				}
 			}
 		}
 

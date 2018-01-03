@@ -17,7 +17,7 @@ public class BoardPageController {
 			@RequestParam(value = "dodge") int dodge) {
 		
 		String test = "Display some words please";
-		String[] squares = {"start", "Scrub","Frog King","Smiley"};
+		
 	
 		hp=hp*25 +100;
 		str = str +3;
@@ -32,6 +32,7 @@ public class BoardPageController {
 		 player.setName(name);
 		 player.setStr(str);
 		 player.setCurrentHp(hp);
+		 
 		 
 		 System.out.println(name + " " + hp + " " + player.getCurrentHp() + " " + str + " " + crit + " " + dodge);
 		 

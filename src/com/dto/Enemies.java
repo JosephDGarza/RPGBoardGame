@@ -207,8 +207,7 @@ public class Enemies {
 		deante.setDodge(2);
 		deante.setName("Random Bully");
 		deante.setStr(10);
-		deante.setImgurl("<img src=\"https://drive.google.com/drive/folders/1076_Vb-8Yz9IHXgUgjpXuacpFZhOr-Fa\"\r\n" + 
-				"	width=\"500\" height=\"500\">");
+		deante.setImgurl("<img src=\"https://image.ibb.co/mxtoMb/IMG_2762.jpg\" width=\"500\" height=\"500\">");
 		deante.setAttack("He calls you fat. Your self esteem is hurt for ");
 		deante.setMiss(8);
 		deante.setMissScript("His insult made no sense. No damage taken");

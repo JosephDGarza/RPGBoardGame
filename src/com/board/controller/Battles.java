@@ -31,7 +31,7 @@ public class Battles {
 //		@RequestParam(value = "id") int id, @RequestParam(value = "imgurl") String imgurl,
 //		@RequestParam(value = "name") String name, @RequestParam(value = "str") String str,
 //		@RequestParam(value = "hp") String hp, @RequestParam(value = "currentHp") String currentHp
-		
+		System.out.println("diceroll");
 		String congrats = "<h1>Congratulations, you have defeated the frog king!</h1>";
 		Configuration cfg = new Configuration();
 		cfg.configure("hibernate.cfg.xml");
@@ -51,11 +51,14 @@ public class Battles {
 		int str  = 0;
 		int hp = 0;
 		int currentHp =0;
-		Object[] obj = new Object[5];
+		int miss = 0;
+		String missScript = "";
+		String attack = "";
+		Object[] obj = new Object[9];
 
 
 		
-		String query = "select id,imgurl,name,str,hp,currentHp from EnemyDto WHERE id = '" + diceroll +"'";
+		String query = "select id,imgurl,name,str,hp,currentHp,miss,missScript,attack from EnemyDto WHERE id = '" + diceroll +"'";
 
 		System.out.println(query);
 		Query q2 = s.createQuery(query);
@@ -76,8 +79,12 @@ public class Battles {
 			str = (int) obj[3];
 			hp = (int) obj[4];
 			currentHp = (int) obj[5];
+			miss = (int) obj[6];
+			missScript = (String) obj[7];
+			attack = (String) obj[8];
+			
 			System.out.println(name);
-			list.add(new EnemyDto(str, imgurl, id, name, hp, currentHp));
+			list.add(new EnemyDto(str, imgurl, id, name, hp, currentHp, attack, miss, missScript));
 		}
 		
 		
@@ -92,14 +99,19 @@ public class Battles {
 		model.addAttribute("playerCrit", playerCrit);
 		model.addAttribute("playerStr", playerStr);
 		model.addAttribute("playerDodge", playerDodge);
+		model.addAttribute("diceroll", diceroll);
 
+		
 		model.addAttribute("id", id);
 		model.addAttribute("imgurl", imgurl);
 		model.addAttribute("name", name);
 		model.addAttribute("str", str);
 		model.addAttribute("hp", hp);
 		model.addAttribute("currentHp", currentHp);
-
+		model.addAttribute("attack", attack);
+		model.addAttribute("miss", miss);
+		model.addAttribute("missScript", missScript);
+		
 		return "battles";
 	}
 }
