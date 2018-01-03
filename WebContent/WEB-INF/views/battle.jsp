@@ -21,12 +21,15 @@
 	text-align: center;
 }
 .div1 {
-	float: left;
+ position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 .div2 {
-	float: right;
-	text-align: right;
+ position: fixed;
+  bottom: 0;
+  right: 0;
 }
 
 .div3 {
@@ -35,8 +38,21 @@
 }
 
 .image {
-	float: center;
+  	float: center;
 	text-align: center;
+  position: absolute;
+		top: 100px;
+		left: 800px;
+}
+
+ #swf_file{display:none;}
+ 
+ #texttohide{
+  	float: center;
+	text-align: center;
+  position: absolute;
+		top: 100px;
+		left: 20px;
 }
 
 </style>
@@ -44,11 +60,12 @@
 <title>Battle</title>
 <div class="image">
 <img src="http://img2.wikia.nocookie.net/__cb20141220023915/villains/images/e/ed/King_Wart.jpg"
-	width="500" height="500">
-	
-	
+ 	width="500" height="500">
 	
 
+	
+	 <div id="texttohide"> <img src="http://4.bp.blogspot.com/-Ipt9va_IGHU/UthdQ4fh29I/AAAAAAAAkA0/0cQfPMpQGj8/s1600/energy_smack-3b.gif"></div> 
+    <div id="swf_file">This is swf file</div>
 	
 	</div>
 </head>
@@ -107,6 +124,16 @@
 </body>
 
 <script type="text/javascript">
+
+var timePeriodInMs = 800;
+
+setTimeout(function() 
+{ 
+    document.getElementById("texttohide").style.display = "none"; 
+    document.getElementById("swf_file").style.display = "block"; 
+}, 
+timePeriodInMs);
+
 	var playerhp = document.getElementById("php").value;
 	var playerstr = document.getElementById("pstr").value;
 	var displayphp = document.getElementById("playerhp");

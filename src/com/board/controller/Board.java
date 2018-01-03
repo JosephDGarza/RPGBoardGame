@@ -36,6 +36,12 @@ public class Board {
 		if (diceroll > 34) {
 			tile = diceroll - 34;
 		}
+		if (diceroll > 41) {
+			tile = diceroll - 41;
+		}
+		if (diceroll > 58) {
+			tile = diceroll - 58;
+		}
 		System.out.println(dice);
 		System.out.println(diceroll);
 
@@ -62,6 +68,8 @@ public class Board {
 //		model.addAttribute("str", str);
 //		model.addAttribute("hp", hp);
 //		model.addAttribute("currentHp", currentHp);
+		
+		
 		
 		return "boards";
 	}

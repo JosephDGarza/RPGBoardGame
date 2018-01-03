@@ -79,10 +79,18 @@ var battle = "<input type=\"submit\" value=\"Continue Forward\">";
 		document.getElementById("rollDisplay").innerHTML = "<br>" + rolled + "<br>" + roll;
 		document.getElementById("buttonAppear").innerHTML = battle;
 		if(dice > 17 && dice < 34){
-		document.getElementById("win").innerHTML = "<br>" + "looks like you made it around the board once. Now for round 2, this one will be harder. Enemies have recieved a 10% stat increase." + "<br>";
+		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around the board once. Now for round 2, this one will be harder. Enemies have recieved a 10% stat increase." + "<br>";
 		}
 		if(dice > 34){
-		document.getElementById("win").innerHTML = "<br>" + "looks like you made it around the board twice. Now for round 3, this one will be harder. Enemies received another 10% on top of their existing 10% from the previous round" + "<br>";
+		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around the board twice. Now for round 3, this one will be harder. Enemies received another 10% on top of their existing 10% from the previous round" + "<br>";
+		}
+		
+		if(dice > 41){
+		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around the board three times. Now for round 4, this one will be harder. Enemies received another 25% on top of their existing buffs from previous rounds" + "<br>";
+		}
+		
+		if (dice > 58){
+		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around the board four times. Now for round 5, this one will be harder. Enemies received another 25% on top of their existing buffs from previous rounds" + "<br>";
 		}
 		
 				

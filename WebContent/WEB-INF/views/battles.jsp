@@ -5,6 +5,20 @@
 <head>
 <style>
 
+body{
+background-image:url("https://wallpaperdownload.xyz/wp-content/uploads/2016/10/really-cool-wallpapers2.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	  color: rgb(242,252,255);
+    text-align: left;
+    font-style: italic;
+    font-weight:bolder;
+    font-size: 17px;
+}
+
+
+
 .info_header {
 	display: flex;
 	flex-direction: row;
@@ -21,12 +35,15 @@
 	text-align: center;
 }
 .div1 {
-	float: left;
+ position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 .div2 {
-	float: right;
-	text-align: right;
+ position: fixed;
+  bottom: 0;
+  right: 0;
 }
 
 .div3 {
@@ -34,8 +51,19 @@
 	text-align: center;
 }
 .image {
-	float: center;
+  	float: center;
 	text-align: center;
+  position: absolute;
+		top: 200px;
+		left: 700px;
+}
+
+#texttohide{
+  	float: center;
+	text-align: center;
+  position: absolute;
+		top: 0px;
+		left: 0px;
 }
 
 <!-- -->
@@ -57,7 +85,6 @@ background-repeat: no-repeat;
 
 ul.bargraph li {
     height: 35px;
-    color: blue;
     text-align: left;
     font-style: italic;
     font-weight:bolder;
@@ -92,6 +119,7 @@ background: #36B669;
 <body>
 <div class="image">
 ${imgurl}
+<span id="animation"></span>
 </div>
 	<div>
 	
@@ -224,6 +252,20 @@ ${imgurl}
 	function attack() {
 		if (playerhp > 0) {
 			if (enemyhp > 0) {
+
+var anime = "<div id=\"texttohide\"> <img src=\"http://4.bp.blogspot.com/-Ipt9va_IGHU/UthdQ4fh29I/AAAAAAAAkA0/0cQfPMpQGj8/s1600/energy_smack-3b.gif\"\r\n" + 
+" 	width=\"500\" height=\"500\"></div> ";			
+document.getElementById("animation").innerHTML = anime;
+console.log(anime);
+    
+var timePeriodInMs = 800;
+ setTimeout(function() 
+{ 
+    document.getElementById("texttohide").style.display = "none"; 
+    document.getElementById("swf_file").style.display = "block"; 
+}, 
+timePeriodInMs);
+
 			var plog= "";
 			 var crit = Math.floor((Math.random() * 100) + 1);
 			 if(crit <= pcrit){

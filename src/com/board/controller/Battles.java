@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dto.BackgroundDto;
 import com.dto.EnemyDto;
 
 @Controller
@@ -93,13 +94,49 @@ public class Battles {
 				hp = (int) (hp *1.10);
 				currentHp = (int) (currentHp*1.10);
 			}
+			
+			if (diceroll > 41) {
+				str = (int) (str*1.25);
+				hp = (int) (hp *1.25);
+				currentHp = (int) (currentHp*1.25);
+			}
+			if (diceroll > 58) {
+				str = (int) (str*1.25);
+				hp = (int) (hp *1.25);
+				currentHp = (int) (currentHp*1.25);
+			}
 
 			System.out.println(name);
 			list.add(new EnemyDto(str, imgurl, id, name, hp, currentHp, attack, miss, missScript));
 		}
+		
+/*		REMOVED RANDOM BACKGROUND GENERATOR DUE TO HORRIBLE RESPONSE TIME
+		
+		
+		*/
+//		String background ="";
+//		query ="select stageimg from BackgroundDto order by rand()";
+//		Object[] objImg = new Object[1];
+//		
+//		q2 = s.createQuery(query);
+//
+//		q2.setFirstResult(0);
+//		q2.setMaxResults(1);
+//		List backgroundResults = q2.list();
+//		i = results.iterator();
+//		List<BackgroundDto> Background = new ArrayList<BackgroundDto>();
+//		while (i.hasNext()) {
+//			background = (String) objImg[0];
+//			Background.add(new BackgroundDto(background));
+//		}
+//		
+		
+		
+		
 
 		s.flush();
 		s.close();
+//		model.addAttribute("background", background);
 
 		model.addAttribute("playerName", playerName);
 		model.addAttribute("playerHp", playerHp);

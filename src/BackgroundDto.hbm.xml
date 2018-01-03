@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.dto.BackgroundDto" table="stage"
+		schema="rpgboard">
+
+
+		<id name="id">
+			<column name="id" sql-type="int(255)"></column>
+		</id>
+		<property name="stageimg">
+			<column name="stageimg" sql-type="varchar(255)"></column>
+		</property>
+		
+		
+		
+	</class>
+</hibernate-mapping>	
