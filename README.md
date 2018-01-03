@@ -1,7 +1,7 @@
 # BoardRPG
 
 # Author
-Yasmin Rodriguez https://github.com/yasrodriguez | https://www.linkedin.com/in/yasrodriguez/
+Joseph Garza https://www.linkedin.com/in/joseph-garza/
 
 # Summary
 
