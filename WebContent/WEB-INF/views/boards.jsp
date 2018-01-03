@@ -9,13 +9,23 @@
 	float: right;
 	text-align: right;
 }
+.image {
+float: center;
+text-align: center;
+}
+
+body{
+background-image:url("https://wallpaperdownload.xyz/wp-content/uploads/2016/10/really-cool-wallpapers2.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
 
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Congrats</title>
 </head>
 <body>
-
 
 ${congrats}
 <div class="div2">
@@ -40,6 +50,11 @@ ${congrats}
 
 <input type="hidden" id="diceroll" name="diceroll" value="${diceroll}">
 		</form>
+<div class="image">
+<img src="http://i1320.photobucket.com/albums/u524/JosephDGarza90/boardstart_zpsxxpymn0y.png">
+</div>
+
+
 </body>
 
 <script type="text/javascript">
