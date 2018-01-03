@@ -209,9 +209,9 @@ public class Enemies {
 		deante.setStr(10);
 		deante.setImgurl("<img src=\"https://drive.google.com/drive/folders/1076_Vb-8Yz9IHXgUgjpXuacpFZhOr-Fa\"\r\n" + 
 				"	width=\"500\" height=\"500\">");
-		theFlash.setAttack("He calls you fat. Your self esteem is hurt for ");
-		theFlash.setMiss(8);
-		theFlash.setMissScript("His insult made no sense. No damage taken");
+		deante.setAttack("He calls you fat. Your self esteem is hurt for ");
+		deante.setMiss(8);
+		deante.setMissScript("His insult made no sense. No damage taken");
 		
 		EnemyDto rollback = new EnemyDto();
 		rollback.setHp(1);
@@ -239,10 +239,10 @@ public class Enemies {
 		
 		
 		ArrayList<EnemyDto> data = new ArrayList<EnemyDto>();
-		data.add(scrub);
 		data.add(frog);
-		data.add(smiley);
+		data.add(scrub);
 		data.add(fireelmo);
+		data.add(smiley);
 		data.add(trex);
 		data.add(cuteKitten);
 		data.add(heart);
