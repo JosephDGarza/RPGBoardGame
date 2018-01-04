@@ -62,7 +62,7 @@
 <img src="http://img2.wikia.nocookie.net/__cb20141220023915/villains/images/e/ed/King_Wart.jpg"
  	width="500" height="500">
 	
-
+<img src="https://image.ibb.co/b4QNXG/transparency_test.png">
 	
 	 <div id="texttohide"> <img src="http://4.bp.blogspot.com/-Ipt9va_IGHU/UthdQ4fh29I/AAAAAAAAkA0/0cQfPMpQGj8/s1600/energy_smack-3b.gif"></div> 
     <div id="swf_file">This is swf file</div>

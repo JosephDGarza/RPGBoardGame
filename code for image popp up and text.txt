@@ -1,0 +1,71 @@
+ <div id="picture">
+<img src="http://img2.wikia.nocookie.net/__cb20141220023915/villains/images/e/ed/King_Wart.jpg" class="thumbnail" height="100" width="100" /> 
+   <img src="http://img2.wikia.nocookie.net/__cb20141220023915/villains/images/e/ed/King_Wart.jpg" class="thumbnail" height="100" width="100" />
+   
+   
+ <div class="pic_transform">
+   <div class="text_display">
+            <h5>Hp35  Str 11</h5>
+        </div>
+           </div>
+    </div>
+
+
+
+.thumbnail:hover {
+    position:relative;
+    top:0px;
+    left:0px;
+    width:200px;
+    height:auto;
+    display:block;
+    z-index:150;
+  no-repeat;
+      background-size: 200px 200px;
+      border: 10px solid #fff;
+      position: relative;    
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+       box-sizing: border-box;
+       -webkit-box-shadow: 5px 5px 5px #111;
+       box-shadow: 5px 5px 5px #111;     
+  
+}
+
+.pic_transform {
+  
+        transition-duration: 0.5s;            
+        -webkit-transition-duration: 0.5s; 
+        -moz-transition-duration: 0.5s;    
+        -o-transition-duration: 0.5s;
+         overflow: hidden;
+         height: 0px;
+                         }
+#picture:hover .pic_transform {
+          height: 50px;
+                          }
+.text_display {
+   
+        transform-origin: top;               
+        transition-duration: 0.5s;               
+        -webkit-transform-origin: top;       
+        -webkit-transition-duration: 0.5s;   
+        -moz-transform-origin: top;           
+        -moz-transition-duration: 0.5s;       
+        -o-transform-origin: top;    
+        -o-transition-duration: 0.5s;
+        font-size: 16px;
+        font-family: Arial;       
+        font-weight: normal;
+        text-align:center;
+        color: #FFF;      
+         width:300px;
+                     }
+#picture:hover .text_display {
+   background-size: 200px 200px;
+         background: rgba(0, 0, 0, 0.5);   
+         color: #fff;   
+         height:50px;   
+        width:300px;
+                      }

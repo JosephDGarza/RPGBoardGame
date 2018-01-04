@@ -103,7 +103,7 @@ public class Enemies {
 		heart.setDodge(0);
 		heart.setName("Heal");
 		heart.setStr(-50);
-		heart.setImgurl("<img src=\"https://media.giphy.com/media/xUPGcgvoipFxRtpMl2/giphy.gif\"\r\n" + 
+		heart.setImgurl("<img src=\"https://i.giphy.com/media/xUPGcgvoipFxRtpMl2/giphy.webp\"\r\n" + 
 				"	width=\"500\" height=\"500\">");
 		heart.setAttack("You've been healed for 50 health!");
 		heart.setMiss(0);
@@ -158,9 +158,9 @@ public class Enemies {
 		superman.setStr(20);
 		superman.setImgurl("<img src=\"http://cartoon-characters.com/wp-content/uploads/2014/05/Superman.jpg\"\r\n" + 
 				"	width=\"500\" height=\"500\">");
-		superman.setAttack("Undwear guy retaliates, you fly accross the world for ");
+		superman.setAttack("Underwear guy retaliates, you fly accross the world for ");
 		superman.setMiss(60);
-		superman.setMissScript("Undwear guy acts like you're not even there as you hit him. No damage taken");
+		superman.setMissScript("Underwear guy acts like you're not even there as you hit him. No damage taken");
 		
 		
 		EnemyDto spongebob  = new EnemyDto();
