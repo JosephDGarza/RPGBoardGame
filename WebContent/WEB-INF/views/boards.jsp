@@ -16,7 +16,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -71,7 +71,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -128,7 +128,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -184,7 +184,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -240,7 +240,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -293,7 +293,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -350,7 +350,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -407,7 +407,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -464,7 +464,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -519,7 +519,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -575,7 +575,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -631,7 +631,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -688,7 +688,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -742,7 +742,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -799,7 +799,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -856,7 +856,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
@@ -910,7 +910,7 @@
       height: 200px;
 
       background-size: 200px 200px;
-      border: 10px solid #fff; 
+      border: 14px solid #fff; 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
