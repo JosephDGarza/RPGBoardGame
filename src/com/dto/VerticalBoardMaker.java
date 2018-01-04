@@ -11,7 +11,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.criteria.internal.expression.function.SubstringFunction;
 
-public class VerticleBoardMaker {
+public class VerticalBoardMaker {
 
 	public static void main(String[] args) {
 		String divs ="";
@@ -38,7 +38,7 @@ public class VerticleBoardMaker {
 		//for (i=16; i > 13 ; i--) { left side
 		
 		int pixel = -200; 
-		for (i=16; i > 13 ; i--) {
+		for (i=6; i < 9 ; i++) {
 		
 		pixel += 290;
 		String query = "select imgurl,name,str,hp from EnemyDto WHERE id = '"
@@ -67,15 +67,31 @@ public class VerticleBoardMaker {
 			
 			
 			
-			divs = "<div id=\"picture" +i + "\">\r\n" + 
-					" " + convimg[0] + "<div class=\"pic_transform" +i +"\">\r\n" + 
-							"      \r\n" + 
-							"        <div class=\"text_display" +i +"\">\r\n" + 
-							"          <h4>" + name + "<br>" + "HP: " + hp + " STR: "+ str + "<br> </h4> (base stats only)\r\n" + 
-									"        </div>\r\n" + 
-									"    </div>\r\n" + 
-									"\r\n" + 
-									"</div>";
+//			divs = "<div id=\"picture" +i + "\">\r\n" + 
+//					" " + convimg[0] + "<div class=\"pic_transform" +i +"\">\r\n" + 
+//							"      \r\n" + 
+//							"        <div class=\"text_display" +i +"\">\r\n" + 
+//							"          <h4>" + name + "<br>" + "HP: " + hp + " STR: "+ str + "<br> </h4> (base stats only)\r\n" + 
+//									"        </div>\r\n" + 
+//									"    </div>\r\n" + 
+//									"\r\n" + 
+//									"</div>";
+			
+		divs=	"<div id=\"picture" + i +"\">\r\n" + 
+				" " + convimg[0] + "<div class=\"pic_transform" +i +"\">\r\n" +  
+			"\r\n" + 
+			"  <h2><span>"+i+"<span class='spacer'></span><br /><span class='spacer'></span></span></h2>\r\n" + 
+			"  \r\n" + 
+			"        <div class=\"text_display" +i +"\">\r\n" + 
+			"          <h4>" + name + "<br>" + "HP: " + hp + " STR: "+ str + "<br> </h4> (base stats only)\r\n" + 
+			"          \r\n" + 
+			"           \r\n" + 
+			"        </div>\r\n" + 
+			"    </div>\r\n" + 
+			"\r\n" + 
+			"</div>";
+			
+			
 			
 			css = "#picture"+i+ "{\r\n" + 
 					"  	  position: absolute;\r\n" + 

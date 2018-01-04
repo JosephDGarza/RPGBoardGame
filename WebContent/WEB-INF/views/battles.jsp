@@ -3,115 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-
-body{
-background-image:url("https://wallpaperdownload.xyz/wp-content/uploads/2016/10/really-cool-wallpapers2.jpg");
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	  color: rgb(242,252,255);
-    text-align: left;
-    font-style: italic;
-    font-weight:bolder;
-    font-size: 17px;
-}
-
-
-
-.info_header {
-	display: flex;
-	flex-direction: row;
-	float: center;
-	text-align: center;
-}
-
-.info_header p {
-	margin: 0px 20px 0px 20px;
-	padding: 5px;
-	height: 220px;
-	overflow: scroll;
-	float: center;
-	text-align: center;
-}
-.div1 {
- position: fixed;
-  bottom: 0;
-  left: 0;
-}
-
-.div2 {
- position: fixed;
-  bottom: 0;
-  right: 0;
-}
-
-.div3 {
-	float: center;
-	text-align: center;
-}
-.image {
-  	float: center;
-	text-align: center;
-  position: absolute;
-		top: 200px;
-		left: 700px;
-}
-
-#texttohide{
-  	float: center;
-	text-align: center;
-  position: absolute;
-		top: 0px;
-		left: 0px;
-}
-
-<!-- -->
-
-.health{
-background-image:url("http://www.symbols.com/gi.php?type=1&id=2201");
-background-size: 500px 60px;
-background-repeat: no-repeat;
-}
-
-
-
-.bargraph {
-	text-align: left;
-    list-style: none;
-    width:250px;
-    border-style: solid;
-    }
-
-ul.bargraph li {
-    height: 35px;
-    text-align: left;
-    font-style: italic;
-    font-weight:bolder;
-    font-size: 17px;
-    line-height: 35px;
-   
-    margin-bottom: 5px;
-   
-   
-    }
-
-ul.bargraph li.reddeep {
-
-background: #ED1C24;
-width:100%;
-}
-
-ul.bargraph li.greenbright {
-
-background: #36B669;
-}
- 
-
-
-
-<!-- -->
-</style>
+<link href="resources/Battles.css" type="text/css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Battle</title>
 
@@ -125,7 +17,7 @@ ${imgurl}
 	
 	
 	<input type="hidden" id="id" name="id" value="${id}">
-<input type="hidden" id="imgurl" name="imgurl" value="${imgurl}">
+<input type="hidden" id="imgurl" name="imgurl" value="${imgurl}
 <input type="hidden" id="name" name="name" value="${name}">
 <input type="hidden" id="str" name="str" value="${str}">
 <input type="hidden" id="hp" name="hp" value="${hp}">

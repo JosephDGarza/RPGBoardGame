@@ -41,7 +41,7 @@ public class HorizontalBoardMaker {
 		
 		//for (i=1; i < 6; i++) { top 5 tiles
 		
-		for (i=1; i < 6; i++) {
+		for (i=13; i > 8; i--) {
 		
 		pixel += 210;
 		String query = "select imgurl,name,str,hp from EnemyDto WHERE id = '"
@@ -70,19 +70,24 @@ public class HorizontalBoardMaker {
 			
 			
 			
-			divs = "<div id=\"picture" +i + "\">\r\n" + 
-					" " + convimg[0] + "<div class=\"pic_transform" +i +"\">\r\n" + 
-							"      \r\n" + 
-							"        <div class=\"text_display" +i +"\">\r\n" + 
-							"          <h4>" + name + "<br>" + "HP: " + hp + " STR: "+ str + "<br> </h4> (base stats only)\r\n" + 
-									"        </div>\r\n" + 
-									"    </div>\r\n" + 
-									"\r\n" + 
-									"</div>";
+			divs = "<div id=\"picture" + i +"\">\r\n" + 
+					" " + convimg[0] + "<div class=\"pic_transform" +i +"\">\r\n" +  
+					"\r\n" + 
+					"  <h2><span>"+i+"<span class='spacer'></span><br /><span class='spacer'></span></span></h2>\r\n" + 
+					"  \r\n" + 
+					"        <div class=\"text_display" +i +"\">\r\n" + 
+					"          <h4>" + name + "<br>" + "HP: " + hp + " STR: "+ str + "<br> </h4> (base stats only)\r\n" + 
+					"          \r\n" + 
+					"           \r\n" + 
+					"        </div>\r\n" + 
+					"    </div>\r\n" + 
+					"\r\n" + 
+					"</div>";
+			
 			
 			css = "#picture"+i+ "{\r\n" + 
 					"  	  position: absolute;\r\n" + 
-					"		top: "+ 60 +"px;\r\n" + 
+					"		top: "+ 760 +"px;\r\n" + 
 					"		left: "+pixel+"px;\r\n" + 
 					"      width: 175x;\r\n" + 
 					"      height: 200px;\r\n" + 
@@ -134,11 +139,11 @@ public class HorizontalBoardMaker {
 					"                      }\r\n" + 
 					"";
 			
-//			System.out.println(divs + "\n \n");
+			System.out.println(divs + "\n \n");
 			
 			
 			
-			System.out.println(css + "\n \n \n \n");
+//			System.out.println(css + "\n \n \n \n");
 			
 			
 			

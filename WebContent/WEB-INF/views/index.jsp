@@ -38,6 +38,24 @@
     background: #4CAF50;
     cursor: pointer;
 }
+.image { 
+   position: relative; 
+   width: 100%; 
+}
+
+h2 span { 
+   color: white; 
+   font: bold 24px/45px Helvetica, Sans-Serif; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); 
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}
+
+h2 span.spacer {
+   padding:0 5px;
+}
+
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Home Page</title>
@@ -51,6 +69,15 @@
 <p>Crit 2% </p>
 <p>Dodge 2% </p>
 <br>
+
+<div class="image">
+
+      <img src="http://img2.wikia.nocookie.net/__cb20141220023915/villains/images/e/ed/King_Wart.jpg" alt="" />
+      
+     <h2><span>A Movie in the Park:<span class='spacer'></span><br /><span class='spacer'></span>Kung Fu Panda</span></h2>
+
+</div>
+
 <form onsubmit="myFunction();"action="board" method="POST">
 <h3>You have: <span id= "points"> </span> points left to spend</h3>
 <input type="text" id="name" name="name" placeholder="Hero name" aria-label="Hero name" oninput="characterName()" required>
