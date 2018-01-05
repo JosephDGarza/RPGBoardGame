@@ -159,12 +159,24 @@ ${imgurl}
 			
 <!-- Animation happens here -->
 
-var anime = "<div id=\"texttohide\"> <img src=\"http://4.bp.blogspot.com/-Ipt9va_IGHU/UthdQ4fh29I/AAAAAAAAkA0/0cQfPMpQGj8/s1600/energy_smack-3b.gif\"\r\n" + 
+var anime = "<div id=\"texttohide\"> <img src=\https://image.ibb.co/fW4ZWb/Energyattack.gif\"\r\n" + 
 " 	width=\"500\" height=\"500\"></div> ";			
 document.getElementById("animation").innerHTML = anime;
 console.log(anime);
     
-var timePeriodInMs = 800;
+var timePeriodInMs = 920;
+
+
+<!--  created sword slash with invis background -->
+<!--  
+var anime = "<div id=\"texttohide\"> <img src=\"https://image.ibb.co/mDOsjw/test.gif\"\r\n" + 
+" 	width=\"500\" height=\"500\"></div> ";			
+document.getElementById("animation").innerHTML = anime;
+console.log(anime);
+    
+var timePeriodInMs = 810;
+-->
+
 
 <!-- this stops the animation from staying there-->
 

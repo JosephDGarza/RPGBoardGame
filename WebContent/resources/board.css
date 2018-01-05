@@ -998,10 +998,13 @@ background-repeat: no-repeat;
 
 
 .bargraph {
+	background-image: -webkit-linear-gradient(135deg, blue, black);
+    opacity: 0.80;
 	text-align: left;
     list-style: none;
     width:250px;
     border-style: solid;
+   
     }
 
 ul.bargraph li {

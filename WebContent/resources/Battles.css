@@ -75,6 +75,8 @@ background-repeat: no-repeat;
     list-style: none;
     width:250px;
     border-style: solid;
+    background-image: -webkit-linear-gradient(135deg, blue, black);
+    opacity: 0.80;
     }
 
 ul.bargraph li {
