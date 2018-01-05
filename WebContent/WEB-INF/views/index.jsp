@@ -126,7 +126,7 @@ var pstr =  strslider.value*1 + 3;
 var pdodge = dodgeslider.value*1 + 2;
 
 var ten = 10*1 -hpslider.value*1 -strslider.value*1 -critslider.value*1 -dodgeslider.value*1;
-
+document.getElementById("points").innerHTML = ten;
 hpslider.oninput = function() {
 hpoutput.innerHTML = this.value;
 hp.innerHTML = this.value * 25 + 100;
