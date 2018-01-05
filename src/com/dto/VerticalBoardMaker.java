@@ -77,6 +77,8 @@ public class VerticalBoardMaker {
 //									"\r\n" + 
 //									"</div>";
 			
+			
+			//This creates my div containers to host the images on my board
 		divs=	"<div id=\"picture" + i +"\">\r\n" + 
 				" " + convimg[0] + "<div class=\"pic_transform" +i +"\">\r\n" +  
 			"\r\n" + 
@@ -92,7 +94,7 @@ public class VerticalBoardMaker {
 			"</div>";
 			
 			
-			
+			//This creates the css for each image to host its location on the board
 			css = "#picture"+i+ "{\r\n" + 
 					"  	  position: absolute;\r\n" + 
 					"		top: "+ pixel +"px;\r\n" + 

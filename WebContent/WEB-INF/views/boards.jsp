@@ -15,7 +15,7 @@
 
 
 
-
+<!-- thi   -->
 
 <div id="picture1">
  <img
@@ -315,18 +315,19 @@ ${congrats}
 <div class="div2">
 			<h3>Player stats</h3>
 			<ul class="bargraph"><br> 
-			${playerName}'s  hp <span id="pbar"></span> <span id="playerhp"></span> 
+			${playerName}'s  hp <li class="reddeep" style="width: 100%;"><span id="pbar"></span> <span id="playerhp"></span> 
 			</li> ${playerStr} Str<br> ${playerCrit} Crit<br>
 			${playerDodge} Dodge<br>
 			</ul>
 		</div>
+		
 		<input type="hidden" value="You rolled a ${dice}" id="rolled">
 		<input type="hidden" value="${diceroll}" id="dicerolled">
 		<input type="hidden" value="${tile} is the square you will be on" id="roll">
-	
-	  	<input id="dice" type="image" src="resources/images/dieroll.png" alt="submit" onclick="rollFunction()"> (click to roll your dye)
-		<span id="win"></span>
 		
+	  	<input id="dice" type="image" src="resources/images/dieroll.png" alt="submit" onclick="rollFunction()"> (click to roll your die)
+		<p class="win" id="win"></p>
+		<h3>Current position: ${currentTile}</h3>
 		<span id="rollDisplay" class="buttons"></span>
 		
 		<form action="battles" method="POST">
@@ -368,18 +369,18 @@ var battle = "<section class=\"buttons\">\r\n" +
 		document.getElementById("rollDisplay").innerHTML = "<br>" + rolled + "<br>" + roll;
 		document.getElementById("buttonAppear").innerHTML = battle;
 		if(dice > 17 && dice < 34){
-		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around the board once. Now for round 2, this one will be harder. Enemies have recieved a 10% stat increase." + "<br>";
+		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around <br> the board once. Now for round 2, <br> this one will be harder. Enemies <br> have recieved a 10% stat increase." + "<br>";
 		}
 		if(dice > 34){
-		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around the board twice. Now for round 3, this one will be harder. Enemies received another 10% on top of their existing 10% from the previous round" + "<br>";
+		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around <br> the board twice. Now for round 3,  <br> this one will be harder. Enemies <br> received another 10% on top of their <br>  existing 10% from the previous round" + "<br>";
 		}
 		
 		if(dice > 41){
-		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around the board three times. Now for round 4, this one will be harder. Enemies received another 25% on top of their existing buffs from previous rounds" + "<br>";
+		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around  <br> the board three times. Now for round <br>  4, this one will be harder.  <br> Enemies received another 25% on <br>  top of their existing buffs from <br>  previous rounds" + "<br>";
 		}
 		
 		if (dice > 58){
-		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around the board four times. Now for round 5, this one will be harder. Enemies received another 25% on top of their existing buffs from previous rounds" + "<br>";
+		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around  <br> the board four times. Now for round <br>  5, this one will be harder. <br>  Enemies received another 25% on <br>  top of their existing buffs from <br>  previous rounds" + "<br>";
 		}
 		
 				

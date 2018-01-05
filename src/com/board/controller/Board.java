@@ -28,19 +28,36 @@ public class Board {
 		int dice = 0;
 		rollCount = rollCount + 1;
 		dice = (int) (Math.random() * 5 + 1);
+		
+		int currentTile = diceroll;
+		if (diceroll > 17) {
+			currentTile = diceroll - 17;
+		}
+		if (diceroll > 34) {
+			currentTile = diceroll - 34;
+		}
+		if (diceroll > 51) {
+			currentTile = diceroll - 51;
+		}
+		if (diceroll > 68) {
+			currentTile = diceroll - 68;
+		}
+		
 		diceroll = diceroll+dice;
 		tile = diceroll;
+		
+		
 		if (diceroll > 17) {
 			tile = diceroll - 17;
 		}
 		if (diceroll > 34) {
 			tile = diceroll - 34;
 		}
-		if (diceroll > 41) {
-			tile = diceroll - 41;
+		if (diceroll > 51) {
+			tile = diceroll - 51;
 		}
-		if (diceroll > 58) {
-			tile = diceroll - 58;
+		if (diceroll > 68) {
+			tile = diceroll - 68;
 		}
 		System.out.println(dice);
 		System.out.println(diceroll);
@@ -57,6 +74,7 @@ public class Board {
 		model.addAttribute("playerStr", playerStr);
 		model.addAttribute("playerDodge", playerDodge);
 		
+		model.addAttribute("currentTile", currentTile);
 		model.addAttribute("dice", dice);
 		model.addAttribute("diceroll", diceroll);
 		model.addAttribute("tile",tile);

@@ -1,5 +1,11 @@
 @charset "ISO-8859-1";
 
+.win{
+	    margin: auto;
+	top: 0px;
+	 left: 400px;
+
+		}
 
 #dice {
 	background-image: url("resources/images/dieroll.png");

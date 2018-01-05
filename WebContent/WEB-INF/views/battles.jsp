@@ -26,12 +26,15 @@ ${imgurl}
 
 
 
-
 		<div class="div1">
 			<h3>Enemy stats</h3>
 			<ul class="bargraph"><br> 
-			${name}'s Hp<span id="ebar"></span><span id="enemyhp"></span>
-			${str} Str
+			
+			${name}'s Hp<li class="reddeep" style="width: 100%;"><span id="ebar"></span><span id="enemyhp"></span>
+			</li>${str} Str<br>
+			<br>
+			<br>
+			
 			</ul>
 					
 		</div>
@@ -39,9 +42,10 @@ ${imgurl}
 <div class="div2">
 			<h3>Player stats</h3>
 			<ul class="bargraph"><br> 
-			${playerName}'s  hp <span id="pbar"></span> <span id="playerhp"></span> 
+			${playerName}'s  hp <li class="reddeep" style="width: 100%;"><span id="pbar"></span> <span id="playerhp"></span> 
 			</li> ${playerStr} Str<br> ${playerCrit} Crit<br>
 			${playerDodge} Dodge<br>
+			
 			</ul>
 		</div>
 
@@ -79,6 +83,7 @@ ${imgurl}
 <ul class="bargraph">
     <li class="reddeep">XHTML / CSS</li>
     <li class="greenbright" style="width: 80%;">Javascript</li>
+    
 </ul>
 
   -->
@@ -110,6 +115,9 @@ ${imgurl}
 </body>
 
 <script type="text/javascript">
+
+	<!-- player variables -->
+	
 	var score = document.getElementById("score").value;
 	var pcrit = document.getElementById("pCrit").value;
 	var pdodge = document.getElementById("pdodge").value;
@@ -122,8 +130,11 @@ ${imgurl}
 	var playerstr = document.getElementById("pstr").value;
 	var displayphp = document.getElementById("playerhp");
 	pbar = "<li class=\"greenbright\" style=\"width: " + (playerhp/pmaxhp)*100 + "%;\">" +playerhp + "/" + pmaxhp + "</li>";
-	<!--displayphp.innerHTML = playerhp;-->
+	
+	<!--displays player health before battle -->
 	displaypbar.innerHTML = pbar;
+	
+	<!-- enemy variables -->
 	
 	var emissScript = document.getElementById("emissScript").value;
 	var emiss = document.getElementById("emiss").value;
@@ -135,8 +146,9 @@ ${imgurl}
 	var enemyhp = document.getElementById("ehp").value;
 	var enemystr = document.getElementById("estr").value;
 	var displayehp = document.getElementById("enemyhp");
-	ebar = "<li class=\"reddeep\" style=\"width: " + (enemyhp/emaxhp)*100 + "%;\">" +enemyhp + "/" + emaxhp + "</li>";
-	<!-- displayehp.innerHTML = enemyhp; -->
+	ebar = "<li class=\"greenbright\" style=\"width: " + (enemyhp/emaxhp)*100 + "%;\">" +enemyhp + "/" + emaxhp + "</li>";
+	
+	<!--displays enemy health before battle -->
 	displayebar.innerHTML = ebar;
 	
 	var elog= "";
@@ -144,6 +156,8 @@ ${imgurl}
 	function attack() {
 		if (playerhp > 0) {
 			if (enemyhp > 0) {
+			
+<!-- Animation happens here -->
 
 var anime = "<div id=\"texttohide\"> <img src=\"http://4.bp.blogspot.com/-Ipt9va_IGHU/UthdQ4fh29I/AAAAAAAAkA0/0cQfPMpQGj8/s1600/energy_smack-3b.gif\"\r\n" + 
 " 	width=\"500\" height=\"500\"></div> ";			
@@ -151,6 +165,9 @@ document.getElementById("animation").innerHTML = anime;
 console.log(anime);
     
 var timePeriodInMs = 800;
+
+<!-- this stops the animation from staying there-->
+
  setTimeout(function() 
 { 
     document.getElementById("texttohide").style.display = "none"; 
@@ -159,6 +176,8 @@ var timePeriodInMs = 800;
 timePeriodInMs);
 
 			var plog= "";
+			
+			<!-- Crit rng -->
 			 var crit = Math.floor((Math.random() * 100) + 1);
 			 if(crit <= pcrit){
 			plog = "You critically hit "+ enemyname +" for " + playerstr*2 + " damage!!! <br>";
@@ -173,7 +192,7 @@ timePeriodInMs);
 						 }
 			
 			
-			
+			<!--  death sequence and special tiles are considered here -->
 				if (enemyhp <= 0) {
 				
 				if(enemyname == "Heal"){
@@ -191,7 +210,7 @@ timePeriodInMs);
 			document.getElementById("CombatLog").innerHTML = "you were sent back " + y + " spaces to roll again";
 			
 			}
-					<!-- displayehp.innerHTML = 0; -->
+					
 					ebar = "<li class=\"reddeep\" style=\"width: 0%;\">" + "0" + "/" + emaxhp + "</li>";
 					displayebar.innerHTML = ebar;
 					var win = "You have won!";
@@ -203,15 +222,16 @@ timePeriodInMs);
 					document.getElementById("diceroll").value = diceroll;
 				} 
 				
-				
+				<!--  else enemy is still alive -->
 				else {
 			
 				 
 				 var x = Math.floor((Math.random() * 100) + 1);
 					
-				 	ebar = "<li class=\"reddeep\" style=\"width: " + (enemyhp/emaxhp*100) + "%;\">" +enemyhp + "/" + emaxhp + "</li>";
+					<!--  enemy health bar  -->
+				 	ebar = "<li class=\"greenbright\" style=\"width: " + (enemyhp/emaxhp*100) + "%;\">" +enemyhp + "/" + emaxhp + "</li>";
 				displayebar.innerHTML = ebar;
-					<!-- displayehp.innerHTML = enemyhp - playerstr; -->
+					
 						
 						 console.log("this is x " +x );
 						 console.log(x <= emiss*1 + pdodge*1);
@@ -221,7 +241,7 @@ timePeriodInMs);
 						 }
 						 if (x > emiss*1 + pdodge*1){
 						 
-						 
+						 <!-- player health bar -->
 					playerhp = playerhp - enemystr;
 					pbar = "<li class=\"greenbright\" style=\"width: " + (playerhp/pmaxhp)*100 + "%;\">" +playerhp + "/" + pmaxhp + "</li>";
 					document.getElementById("pbar").innerHTML = pbar;
@@ -229,13 +249,13 @@ timePeriodInMs);
 					console.log(playerhp/pmaxhp);
 					elog = eattack + enemystr + " damage<br><br>";
 					document.getElementById("CombatLog").innerHTML += elog;
-					<!--displayphp.innerHTML = playerhp;-->
+					
 					displaypbar.innerHTML = pbar;
 					
-					
+					<!-- players death -->
 					
 					if (playerhp < 1) {
-					<!-- displayphp.innerHTML = 0; -->
+					
 					pbar = "<li class=\"greenbright\" style=\"width: 0%;\">" + "0" + "/" + pmaxhp + "</li>";
 					document.getElementById("pbar").innerHTML = pbar;
 						var death = "You have died. <br> You rolled " + score + " times before losing.";

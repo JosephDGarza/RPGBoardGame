@@ -27,14 +27,7 @@ public class Battles {
 			@RequestParam(value = "playerCrit") int playerCrit, @RequestParam(value = "playerDodge") int playerDodge,
 			@RequestParam(value = "diceroll") int diceroll, @RequestParam(value = "tile") int tile,
 			@RequestParam(value = "rollCount") int rollCount) {
-		// public String battle(Model model) {
-
-		// @RequestParam(value = "id") int id, @RequestParam(value = "imgurl") String
-		// imgurl,
-		// @RequestParam(value = "name") String name, @RequestParam(value = "str")
-		// String str,
-		// @RequestParam(value = "hp") String hp, @RequestParam(value = "currentHp")
-		// String currentHp
+	
 		System.out.println("diceroll");
 		String congrats = "<h1>Congratulations, you have defeated the frog king!</h1>";
 		Configuration cfg = new Configuration();
@@ -56,6 +49,9 @@ public class Battles {
 		String attack = "";
 		Object[] obj = new Object[9];
 
+		
+		//Selecting the battle based on the tile location
+		
 		String query = "select id,imgurl,name,str,hp,currentHp,miss,missScript,attack from EnemyDto WHERE id = '"
 				+ tile + "'";
 
@@ -69,8 +65,7 @@ public class Battles {
 		List<EnemyDto> list = new ArrayList<EnemyDto>();
 		while (i.hasNext()) {
 
-			// Objects position is being correlated by the createQuery above. IE. g.appID is
-			// the first, so that would be obj[0]
+
 			obj = (Object[]) i.next();
 			id = (int) obj[0];
 			imgurl = (String) obj[1];
@@ -82,6 +77,8 @@ public class Battles {
 			missScript = (String) obj[7];
 			attack = (String) obj[8];
 			
+			
+			//increasing difficult after going round the board
 			if (diceroll > 17) {
 				str = (int) (str*1.10);
 				hp = (int) (hp *1.10);
@@ -95,12 +92,12 @@ public class Battles {
 				currentHp = (int) (currentHp*1.10);
 			}
 			
-			if (diceroll > 41) {
+			if (diceroll > 51) {
 				str = (int) (str*1.25);
 				hp = (int) (hp *1.25);
 				currentHp = (int) (currentHp*1.25);
 			}
-			if (diceroll > 58) {
+			if (diceroll > 68) {
 				str = (int) (str*1.25);
 				hp = (int) (hp *1.25);
 				currentHp = (int) (currentHp*1.25);
