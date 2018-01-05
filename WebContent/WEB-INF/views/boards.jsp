@@ -370,10 +370,10 @@ var battle = "<section class=\"buttons\">\r\n" +
 		document.getElementById("rollDisplay").innerHTML = "<br>" + rolled + "<br>" + roll;
 		document.getElementById("buttonAppear").innerHTML = battle;
 		if(dice > 17 && dice < 34){
-		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around <br> the board once. Now for round 2, <br> this one will be harder. Enemies <br> have recieved a 10% stat increase." + "<br>";
+		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around <br> the board once. Now for round 2, <br> this one will be harder. Enemies <br> have recieved a 30% stat increase." + "<br>";
 		}
 		if(dice > 34){
-		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around <br> the board twice. Now for round 3,  <br> this one will be harder. Enemies <br> received another 10% on top of their <br>  existing 10% from the previous round" + "<br>";
+		document.getElementById("win").innerHTML = "<br>" + "It looks like you made it around <br> the board twice. Now for round 3,  <br> this one will be harder. Enemies <br> received another 30% on top of their <br>  existing 30% from the previous round" + "<br>";
 		}
 		
 		if(dice > 41){

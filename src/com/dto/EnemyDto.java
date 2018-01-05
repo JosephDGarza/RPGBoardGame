@@ -70,6 +70,21 @@ public class EnemyDto extends CharacterDto implements Serializable{
 		this.missScript = missScript;
 		
 	}
+	
+	public EnemyDto(int str, String imgurl, int id, String name, int hp, int currentHp, String attack, int miss, String missScript, int dodge) {
+		super();
+		this.str = str;
+		this.imgurl = imgurl;
+		this.setHp(currentHp);
+		this.setName(name);
+		this.setCurrentHp(currentHp);
+		this.setId(id);
+		this.attack = attack;
+		this.miss= miss;
+		this.missScript = missScript;
+		this.dodge=dodge;
+		
+	}
 
 
 

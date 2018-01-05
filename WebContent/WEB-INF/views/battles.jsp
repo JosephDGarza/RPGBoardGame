@@ -115,6 +115,7 @@ ${imgurl}
 	<input type="hidden" id="eattack" name="eattack" value="${attack}">
 	<input type="hidden" id="emiss" name="emiss" value="${miss}">
 	<input type="hidden" id="emissScript" name="emissScript" value="${missScript}">
+	<input type="hidden" id="edodge" name="edodge" value="${dodge }">
 	
 	
 
@@ -153,6 +154,7 @@ ${imgurl}
 	
 	<!-- enemy variables -->
 	
+	var edodge = document.getElementById("edodge").value;
 	var emissScript = document.getElementById("emissScript").value;
 	var emiss = document.getElementById("emiss").value;
 	var eattack = document.getElementById("eattack").value;
@@ -212,7 +214,15 @@ var timePeriodInMs = 920;
 timePeriodInMs);
 
 			var plog= "";
-			
+						var edodgechance = Math.floor((Math.random() * 100) + 1);
+			console.log("Enemy dodge chance is: " + edodge);
+			console.log("number generated for enemy dodge is: " + edodgechance);
+			console.log(edodgechance <= edodge);
+			if(edodgechance <= edodge){
+			plog = "Your attack missed "+ enemyname  + "<br>";
+			document.getElementById("CombatLog").innerHTML += plog
+			}
+			else {
 			<!-- Crit rng -->
 			 var crit = Math.floor((Math.random() * 100) + 1);
 			 if(crit <= pcrit){
@@ -225,6 +235,7 @@ timePeriodInMs);
 						 plog = "You hit "+ enemyname +" for " + dmg + " damage <br>";
 							document.getElementById("CombatLog").innerHTML += plog
 							enemyhp = enemyhp - dmg;
+						 }
 						 }
 			
 			

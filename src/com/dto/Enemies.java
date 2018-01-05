@@ -45,8 +45,8 @@ public class Enemies {
 		frog.setMissScript("Frog King broke his chain! No damage taken");
 		
 		EnemyDto smiley = new EnemyDto();
-		smiley.setHp(13);
-		smiley.setCurrentHp(13);
+		smiley.setHp(15);
+		smiley.setCurrentHp(15);
 		smiley.setDodge(2);
 		smiley.setName("Smiley");
 		smiley.setStr(15);
@@ -189,8 +189,8 @@ public class Enemies {
 		
 		
 		EnemyDto theFlash  = new EnemyDto();
-		theFlash.setHp(15);
-		theFlash.setCurrentHp(15);
+		theFlash.setHp(35);
+		theFlash.setCurrentHp(35);
 		theFlash.setDodge(50);
 		theFlash.setName("Some Fast Nerd");
 		theFlash.setStr(6);

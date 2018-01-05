@@ -47,13 +47,14 @@ public class Battles {
 		int miss = 0;
 		String missScript = "";
 		String attack = "";
-		Object[] obj = new Object[9];
+		int dodge=0;
+		Object[] obj = new Object[10];
 
 
 		
 		//Selecting the battle based on the tile location
 		
-		String query = "select id,imgurl,name,str,hp,currentHp,miss,missScript,attack from EnemyDto WHERE id = '"
+		String query = "select id,imgurl,name,str,hp,currentHp,miss,missScript,attack,dodge from EnemyDto WHERE id = '"
 				+ tile + "'";
 
 		System.out.println(query);
@@ -77,20 +78,21 @@ public class Battles {
 			miss = (int) obj[6];
 			missScript = (String) obj[7];
 			attack = (String) obj[8];
+			dodge = (int) obj[9];
 			
 			
 			//increasing difficult after going round the board
 			if (diceroll > 17) {
-				str = (int) (str*1.10);
-				hp = (int) (hp *1.10);
-				currentHp = (int) (currentHp*1.10);
+				str = (int) (str*1.30);
+				hp = (int) (hp *1.30);
+				currentHp = (int) (currentHp*1.30);
 				
 			}
 			
 			if (diceroll > 34) {
-				str = (int) (str*1.10);
-				hp = (int) (hp *1.10);
-				currentHp = (int) (currentHp*1.10);
+				str = (int) (str*1.30);
+				hp = (int) (hp *1.30);
+				currentHp = (int) (currentHp*1.30);
 			}
 			
 			if (diceroll > 51) {
@@ -105,7 +107,7 @@ public class Battles {
 			}
 
 			System.out.println(name);
-			list.add(new EnemyDto(str, imgurl, id, name, hp, currentHp, attack, miss, missScript));
+			list.add(new EnemyDto(str, imgurl, id, name, hp, currentHp, attack, miss, missScript, dodge));
 		}
 		
 /*		REMOVED RANDOM BACKGROUND GENERATOR DUE TO HORRIBLE RESPONSE TIME
@@ -155,6 +157,7 @@ public class Battles {
 		model.addAttribute("attack", attack);
 		model.addAttribute("miss", miss);
 		model.addAttribute("missScript", missScript);
+		model.addAttribute("dodge", dodge);
 
 		return "battles";
 	}
