@@ -8,12 +8,17 @@
 <title>Battle</title>
 
 </head>
+
+<div class="image1"><img src="https://i.pinimg.com/originals/dd/6a/b1/dd6ab1d0ced6cb3a6f5dce87f3e44253.jpg" height="660" width="1172"></div>
+	
 <body>
 <div class="image">
-${imgurl}
 <span id="animation"></span>
+${imgurl}
+
 </div>
-	<div>
+
+
 	
 	
 	<input type="hidden" id="id" name="id" value="${id}">
@@ -165,8 +170,14 @@ ${imgurl}
 	
 	var elog= "";
 	
+	
+	
+	<!-- This is where the function is set that is called on attack -->
+	
 	function attack() {
 	
+	
+	<!-- This is used to set attack damage for warriors -->
 	if (pcharacter = "Warrior"){
 	dmg = playerstr;
 	dmg = dmg*1 + Math.floor((Math.random() * 9 ))*1;
@@ -207,9 +218,9 @@ timePeriodInMs);
 			 if(crit <= pcrit){
 			plog = "You critically hit "+ enemyname +" for " + dmg*2 + " damage!!! <br>";
 			document.getElementById("CombatLog").innerHTML += plog
-			enemyhp = enemyhp - playerstr*2;
+			enemyhp = enemyhp - dmg*2;
 						 }
-						 
+						 <!-- non crit, enemy hp affected here -->
 						 if (crit > pcrit){
 						 plog = "You hit "+ enemyname +" for " + dmg + " damage <br>";
 							document.getElementById("CombatLog").innerHTML += plog
@@ -222,11 +233,14 @@ timePeriodInMs);
 				
 				if(enemyname == "Heal"){
 			playerhp = playerhp*1 + 50;
+			if(playerhp > pmaxhp){
+			playerhp = pmaxhp;
+			}
 				document.getElementById("CombatLog").innerHTML= "you have been healed for 50 health!"
 			}
 			if(enemyname == "Strength Bonus"){
 			playerstr = playerstr*1 +1;
-				document.getElementById("CombatLog").innerHTML = "you have gained 1 str"
+				document.getElementById("CombatLog").innerHTML = "you have gained 1 Str"
 			
 			}
 			if(enemyname == "Time to go back some squares!"){
@@ -235,6 +249,7 @@ timePeriodInMs);
 			document.getElementById("CombatLog").innerHTML = "you were sent back " + y + " spaces to roll again";
 			
 			}
+			<!-- sets enemy health to 0 on death in event of over kill -->
 					
 					ebar = "<li class=\"reddeep\" style=\"width: 0%;\">" + "0" + "/" + emaxhp + "</li>";
 					displayebar.innerHTML = ebar;
@@ -266,7 +281,7 @@ timePeriodInMs);
 						 }
 						 if (x > emiss*1 + pdodge*1){
 						 
-						 <!-- player health bar -->
+						 <!-- player health bar on hit -->
 					playerhp = playerhp - enemystr;
 					pbar = "<li class=\"greenbright\" style=\"width: " + (playerhp/pmaxhp)*100 + "%;\">" +playerhp + "/" + pmaxhp + "</li>";
 					document.getElementById("pbar").innerHTML = pbar;
