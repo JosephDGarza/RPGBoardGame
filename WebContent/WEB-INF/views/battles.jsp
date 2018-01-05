@@ -67,11 +67,13 @@ ${imgurl}
 
 			<span id ="continue"></span>
 			</form>
+			<ul class="info_border">
 <div class="info_header">
 			<p id="CombatLog"></p>
 		</div>
 		</div>		
 	</div>
+		</ul>
 	
 	
 	
@@ -168,14 +170,7 @@ var timePeriodInMs = 920;
 
 
 <!--  created sword slash with invis background -->
-<!--  
-var anime = "<div id=\"texttohide\"> <img src=\"https://image.ibb.co/mDOsjw/test.gif\"\r\n" + 
-" 	width=\"500\" height=\"500\"></div> ";			
-document.getElementById("animation").innerHTML = anime;
-console.log(anime);
-    
-var timePeriodInMs = 810;
--->
+
 
 
 <!-- this stops the animation from staying there-->

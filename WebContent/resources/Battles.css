@@ -15,6 +15,7 @@ background-image:url("https://wallpaperdownload.xyz/wp-content/uploads/2016/10/r
 
 
 .info_header {
+	
 	display: flex;
 	flex-direction: row;
 	float: center;
@@ -22,13 +23,25 @@ background-image:url("https://wallpaperdownload.xyz/wp-content/uploads/2016/10/r
 }
 
 .info_header p {
+
 	margin: 0px 20px 0px 20px;
-	padding: 5px;
+	padding: 0px;
 	height: 220px;
 	overflow: scroll;
 	float: center;
 	text-align: center;
 }
+
+.info_border {
+	
+    list-style: none;
+    width:500px;
+    border-style: solid;
+    background-image: -webkit-linear-gradient(135deg, blue, black);
+    opacity: 0.80;
+    }
+
+
 .div1 {
  position: fixed;
   bottom: 0;
@@ -42,8 +55,13 @@ background-image:url("https://wallpaperdownload.xyz/wp-content/uploads/2016/10/r
 }
 
 .div3 {
+	position: fixed;
 	float: center;
 	text-align: center;
+    bottom:0px;
+    right:37%;
+    left:45%;
+    margin-left:-150px;
 }
 .image {
   	float: center;
