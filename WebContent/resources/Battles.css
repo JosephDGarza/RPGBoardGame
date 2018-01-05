@@ -33,7 +33,7 @@ background-image:url("https://wallpaperdownload.xyz/wp-content/uploads/2016/10/r
 }
 
 .info_border {
-	
+	overflow: scroll;
     list-style: none;
     width:500px;
     border-style: solid;

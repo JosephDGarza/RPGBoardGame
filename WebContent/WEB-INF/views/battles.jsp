@@ -43,14 +43,14 @@ ${imgurl}
 			<h3>Player stats</h3>
 			<ul class="bargraph"><br> 
 			${playerName}'s  hp <li class="reddeep" style="width: 100%;"><span id="pbar"></span> <span id="playerhp"></span> 
-			</li> ${playerStr} Str<br> ${playerCrit} Crit<br>
+			</li> ${playerCharacter}<br>${playerStr} Str<br> ${playerCrit} Crit<br>
 			${playerDodge} Dodge<br>
 			
 			</ul>
 		</div>
 
 		<div class="div3">
-			<input type="button" value="punch"
+			<input type="button" value="Attack"
 				onclick="attack(playerhp, playerstr, displayphp, enemyhp, enemystr, displayehp)">
 
 			<h2 id="result"></h2>
@@ -64,6 +64,7 @@ ${imgurl}
 <input type="hidden" id="tile" name="tile" value="${tile}">
 <input type="hidden" id="diceroll" name="diceroll" >
 <input type="hidden" id="rollCount" name="rollCount" value="${rollCount}">
+<input type="hidden" id="playerCharacter" name="playerCharacter" value="${playerCharacter}">
 
 			<span id ="continue"></span>
 			</form>
@@ -125,13 +126,22 @@ ${imgurl}
 	var pdodge = document.getElementById("pdodge").value;
 	var diceroll = document.getElementById("dice").value;
 	var pbar = 0;
+	
 	var displaypbar = document.getElementById("pbar");
 	var pmaxhp = document.getElementById("pmaxhp").value
 	var playername = document.getElementById("pname").value;
 	var playerhp = document.getElementById("php").value;
 	var playerstr = document.getElementById("pstr").value;
+	var dmg = playerstr;
 	var displayphp = document.getElementById("playerhp");
+	var pcharacter = document.getElementById("playerCharacter").value;
+	
+	
+	
 	pbar = "<li class=\"greenbright\" style=\"width: " + (playerhp/pmaxhp)*100 + "%;\">" +playerhp + "/" + pmaxhp + "</li>";
+	
+	
+	
 	
 	<!--displays player health before battle -->
 	displaypbar.innerHTML = pbar;
@@ -156,6 +166,14 @@ ${imgurl}
 	var elog= "";
 	
 	function attack() {
+	
+	if (pcharacter = "Warrior"){
+	dmg = playerstr;
+	dmg = dmg*1 + Math.floor((Math.random() * 9 ))*1;
+	console.log("this is damage " +dmg);
+	
+	}
+	
 		if (playerhp > 0) {
 			if (enemyhp > 0) {
 			
@@ -169,7 +187,7 @@ console.log(anime);
 var timePeriodInMs = 920;
 
 
-<!--  created sword slash with invis background -->
+
 
 
 
@@ -187,15 +205,15 @@ timePeriodInMs);
 			<!-- Crit rng -->
 			 var crit = Math.floor((Math.random() * 100) + 1);
 			 if(crit <= pcrit){
-			plog = "You critically hit "+ enemyname +" for " + playerstr*2 + " damage!!! <br>";
+			plog = "You critically hit "+ enemyname +" for " + dmg*2 + " damage!!! <br>";
 			document.getElementById("CombatLog").innerHTML += plog
 			enemyhp = enemyhp - playerstr*2;
 						 }
 						 
 						 if (crit > pcrit){
-						 plog = "You hit "+ enemyname +" for " + playerstr + " damage <br>";
+						 plog = "You hit "+ enemyname +" for " + dmg + " damage <br>";
 							document.getElementById("CombatLog").innerHTML += plog
-							enemyhp = enemyhp - playerstr;
+							enemyhp = enemyhp - dmg;
 						 }
 			
 			

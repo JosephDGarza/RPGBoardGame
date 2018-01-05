@@ -23,8 +23,9 @@ public class Board {
 	public String boards(Model model, @RequestParam(value = "playerName") String playerName, @RequestParam(value = "playerHp") int playerHp,
 			@RequestParam(value = "playerCurrentHp")int playerCurrentHp, @RequestParam(value = "playerStr") int playerStr, @RequestParam(value = "playerCrit") int playerCrit,
 			@RequestParam(value = "playerDodge") int playerDodge, @RequestParam(value = "diceroll") int diceroll,
-			@RequestParam(value = "tile") int tile, @RequestParam(value = "rollCount") int rollCount) {
+			@RequestParam(value = "tile") int tile, @RequestParam(value = "rollCount") int rollCount, @RequestParam(value = "playerCharacter") String playerCharacter) {
 //		System.out.println(diceroll);
+		System.out.println(playerCharacter);
 		int dice = 0;
 		rollCount = rollCount + 1;
 		dice = (int) (Math.random() * 5 + 1);
@@ -67,6 +68,7 @@ public class Board {
 //		System.out.println(playerName + " " + playerHp + " " + playerCurrentHp + " " + playerStr + " " + playerCrit + " " + playerDodge + "This what what got printed");
 //		
 //		model.addAttribute("congrats", congrats);
+		model.addAttribute("playerCharacter", playerCharacter);
 		model.addAttribute("playerName", playerName);
 		model.addAttribute("playerHp", playerHp);
 		model.addAttribute("playerCurrentHp", playerCurrentHp);

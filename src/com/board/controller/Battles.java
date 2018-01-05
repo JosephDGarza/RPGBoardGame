@@ -26,7 +26,7 @@ public class Battles {
 			@RequestParam(value = "playerHp") int playerHp, @RequestParam(value = "playerStr") int playerStr,
 			@RequestParam(value = "playerCrit") int playerCrit, @RequestParam(value = "playerDodge") int playerDodge,
 			@RequestParam(value = "diceroll") int diceroll, @RequestParam(value = "tile") int tile,
-			@RequestParam(value = "rollCount") int rollCount) {
+			@RequestParam(value = "rollCount") int rollCount, @RequestParam(value = "playerCharacter") String playerCharacter) {
 	
 		System.out.println("diceroll");
 		String congrats = "<h1>Congratulations, you have defeated the frog king!</h1>";
@@ -48,6 +48,7 @@ public class Battles {
 		String missScript = "";
 		String attack = "";
 		Object[] obj = new Object[9];
+
 
 		
 		//Selecting the battle based on the tile location
@@ -134,7 +135,7 @@ public class Battles {
 		s.flush();
 		s.close();
 //		model.addAttribute("background", background);
-
+		model.addAttribute("playerCharacter", playerCharacter);
 		model.addAttribute("playerName", playerName);
 		model.addAttribute("playerHp", playerHp);
 		model.addAttribute("playerCurrentHp", playerCurrentHp);

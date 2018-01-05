@@ -20,14 +20,15 @@ Str 3 <br><br>
 Crit 2% <br><br>
 Dodge 2% </p>
 <h3>Select Your Character:</h3>
-<input type="radio" id="btnControl" name="character" value="warrior"/>
+<form onsubmit="myFunction();"action="boards" method="POST">
+<input type="radio" id="btnControl" name="character" value="Warrior"/>
 <label class="btn" for="btnControl"><img src="https://orig00.deviantart.net/851f/f/2013/321/0/8/redeemed_riven_transparent_background_by_77silentcrow-d6uocse.png" width="108" height="150" id="btnLeft" /></label>
 <div class="reveal-if-active">
   <h3 class="green">Warrior:</h3> The warrior class gains a chance of dealing up to 8 more damage on attack (this is an invisible RNG stat. It won't reflect on your stats).
 </div>
 
  <div>
-<input type="radio" id="btnControl2" name="character" value="ninja"/>
+<input type="radio" id="btnControl2" name="character" value="Ninja"/>
 <label class="btn" for="btnControl2"><img src="https://vignette.wikia.nocookie.net/deadliestfiction/images/6/6c/Ryu_Hayabusa_Transparent_Background.png/revision/latest?cb=20130730002718" width="102" height="150" id="btnLeft" /></label>
 
 
@@ -37,7 +38,7 @@ Dodge 2% </p>
             </div>
     </div>
     
-<form onsubmit="myFunction();"action="boards" method="POST">
+
 <h3>You have: <span id= "points"> </span> points left to spend</h3>
 <h1 class="red"><span id="test"></span></h1>
 <input type="text" id="name" name="playerName" placeholder="Hero name" aria-label="Hero name" oninput="characterName()" required>
@@ -79,6 +80,7 @@ ${crit} <br>
 <input type="hidden" id="tile" name="tile" value="0">
 <input type="hidden" id="diceroll" name="diceroll" value="0">
 <input type="hidden" id="rollCount" name="rollCount" value="0">
+<input type="hidden" id="playerCharacter" name="playerCharacter">
 </form>
 
 </div>
@@ -119,6 +121,19 @@ hp.innerHTML = hpslider.value * 25 + 100;
 str.innerHTML = strslider.value*1 + 3;
 crit.innerHTML = critslider.value*1 + 2;
 dodge.innerHTML = dodgeslider.value*1 + 2;
+
+
+ if(document.getElementById("btnControl2").checked){
+  crit.innerHTML = critslider.value*1 + 6;
+
+  }
+  
+   if(document.getElementById("btnControl2").checked){
+  dodge.innerHTML = dodgeslider.value*1 + 6;
+
+  }
+
+
 
 var php = hpslider.value * 25 + 100;
 var pct = critslider.value*1 + 2;
@@ -167,6 +182,11 @@ document.getElementById("test").innerHTML= test;
 else{ test = "";
 document.getElementById("test").innerHTML= test;}
 
+ if(document.getElementById("btnControl2").checked){
+  crit.innerHTML = this.value *1 + 6;
+
+  }
+
 }
 dodgeslider.oninput = function() {
   dodgeoutput.innerHTML = this.value;
@@ -180,11 +200,22 @@ document.getElementById("test").innerHTML= test;
 }
 else{ test = "";
 document.getElementById("test").innerHTML= test;}
+
+
+ if(document.getElementById("btnControl2").checked){
+   dodge.innerHTML = this.value *1 + 6;
+
+  }
+
 }
 
 
 
 function myFunction() {
+
+var character = "";
+
+console.log(document.getElementById("btnControl2").checked);
 document.getElementById("playerCurrentHp").value = php;
 document.getElementById("playerHp").value = php;
 document.getElementById("playerStr").value = pstr;
@@ -201,6 +232,29 @@ var strslider = document.getElementById("myRange1").value;
 var critslider = document.getElementById("myRange2").value;
 var dodgeslider = document.getElementById("myRange3").value;
 
+
+if(document.getElementById("btnControl").checked == false && document.getElementById("btnControl2").checked == false){
+alert ("You must choose a character");
+	event.preventDefault();
+    returnToPreviousPage();
+    return false;
+  }
+  
+   if (document.getElementById("btnControl").checked){
+   character = document.getElementById("btnControl").value;
+  document.getElementById("playerCharacter").value = character
+
+  
+  }
+  
+  if(document.getElementById("btnControl2").checked){
+  character = document.getElementById("btnControl2").value;
+  document.getElementById("playerCharacter").value = character
+    document.getElementById("playerCrit").value = pct*1 +4;
+  document.getElementById("playerDodge").value = pdodge*1+4;
+  }
+  
+
 if (hpslider*1 + strslider*1 + critslider*1  + dodgeslider*1  > 10 || hpslider*1 + strslider*1 + critslider*1  + dodgeslider*1 < 10) {
 
 var check = hpslider*1 + strslider*1 + critslider*1  + dodgeslider*1;
@@ -209,10 +263,12 @@ alert ("You must spend ONLY 10 points. No less or more. You have spent: " + chec
 	event.preventDefault();
     returnToPreviousPage();
     return false;
-  }
-
+  
+}
   alert("Character created!");
   return true;
+  
+  
 }
 
 

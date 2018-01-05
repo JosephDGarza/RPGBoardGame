@@ -103,7 +103,7 @@ public class VerticalBoardMaker {
 					"      height: 200px;\r\n" + 
 					"\r\n" + 
 					"      background-size: 200px 200px;\r\n" + 
-					"      border: 14px solid #fff; \r\n" + 
+					"      border: 14px solid rgba(7, 71, 115, .7); \r\n" + 
 					"      -webkit-box-sizing: border-box;\r\n" + 
 					"      -moz-box-sizing: border-box;\r\n" + 
 					"      -ms-box-sizing: border-box;\r\n" + 
