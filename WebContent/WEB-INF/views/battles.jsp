@@ -78,6 +78,9 @@ ${imgurl}
 		<div class="div3">
 			<h2 id="result"></h2>
 			<span id ="continue"></span>
+			<audio controls autoplay>
+  <source src="resources/Phantasy Star 1 Battle Theme.mp3" type="audio/ogg">
+</audio>
 			<ul class="info_border">
 			<div class="info_header">
 			<p id="CombatLog"></p>
@@ -119,6 +122,8 @@ ${imgurl}
 
 	<!-- player variables -->
 	
+	
+	
 	var score = document.getElementById("score").value;
 	var pcrit = document.getElementById("pCrit").value;
 	var pdodge = document.getElementById("pdodge").value;
@@ -134,7 +139,10 @@ ${imgurl}
 	var displayphp = document.getElementById("playerhp");
 	var pcharacter = document.getElementById("playerCharacter").value;
 	
-	
+	var hitsound = new Audio();
+hitsound.src="resources/sword-clash1.mp3";
+	var winsound = new Audio();
+	winsound.src="https://opengameart.org/sites/default/files/audio_preview/montageAudio-20120704%40194334.mp3.ogg";
 	
 	pbar = "<li class=\"greenbright\" style=\"width: " + (playerhp/pmaxhp)*100 + "%;\">" +playerhp + "/" + pmaxhp + "</li>";
 	
@@ -187,8 +195,7 @@ ${imgurl}
 var anime = "<div id=\"texttohide\"> <img src=\https://image.ibb.co/fW4ZWb/Energyattack.gif\"\r\n" + 
 " 	width=\"500\" height=\"500\"></div> ";			
 document.getElementById("animation").innerHTML = anime;
-
-    
+      hitsound.play();
 var timePeriodInMs = 920;
 
 
@@ -200,8 +207,10 @@ var timePeriodInMs = 920;
 
  setTimeout(function() 
 { 
+ 
     document.getElementById("texttohide").style.display = "none"; 
     document.getElementById("swf_file").style.display = "block"; 
+     
 }, 
 timePeriodInMs);
 
@@ -245,6 +254,7 @@ timePeriodInMs);
 			
 			<!--  death sequence and special tiles are considered here -->
 				if (enemyhp <= 0) {
+				winsound.play();
 				
 				if(enemyname == "Heal"){
 			playerhp = playerhp*1 + 50;
