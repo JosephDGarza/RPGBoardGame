@@ -1,5 +1,28 @@
 @charset "ISO-8859-1";
 
+
+.draw {
+    	position: fixed;
+    background-image: -webkit-linear-gradient(135deg, blue, black);
+    opacity: 0.80;
+   	border-style: solid;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 150px;
+    display: block;
+    font-weight:bold;
+  }
+ 
+  .draw:hover {
+      background-image: -webkit-linear-gradient(135deg, black, blue);
+  }
+
+
 .win{
 	    margin: auto;
 	top: 0px;
@@ -988,12 +1011,6 @@ h2 span.spacer {
          color: #fff;   
            
                       }
-                      
-                      .health{
-background-image:url("http://www.symbols.com/gi.php?type=1&id=2201");
-background-size: 500px 60px;
-background-repeat: no-repeat;
-}
 
 
 
@@ -1033,92 +1050,12 @@ background: #36B669;
 }
 
 
-button {
-  background: rgba(255, 205, 94, 0.2);
-  border: 0;
-  box-sizing: border-box;
-  margin: 1em;
-  padding: 1em 2em;
-  
- 
-  box-shadow: inset 0 0 0 3px rgba(69, 173, 210, 1);
-  color: rgba(69, 173, 210, 1);
-  font-size: inherit;
-  font-weight: 700;
-
-
-  position: relative;
-  vertical-align: middle;
-
-  &::before,
-  &::after {
-    box-sizing: inherit;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-}
 
 
 
-.draw {
-    transition: color 1s;
-  
-
-  &::before,
-  &::after {
-    
-    border: 3px solid transparent;
-    width: 0;
-    height: 0;
-  }
 
  
-  &::before {
-    top: 0;
-    left: 0;
-  }
-
  
-  &::after {
-    bottom: 0;
-    right: 0;
-  }
-  
-  &:hover {
-     background: rgba(69, 173, 210, 1);
-     color: rgba(255, 205, 94, 1);
-  }
-
- 
-  &:hover::before,
-  &:hover::after {
-    width: 100%;
-    height: 100%;
-  }
-
-  &:hover::before {
-    border-top-color: rgba(255, 205, 94, 1); 
-    border-right-color: rgba(255, 205, 94, 1);
-    
-    transition:
-      
-      width 0.25s ease-out, 
-      height 0.25s ease-out 0.25s; 
-  }
-
-  &:hover::after {
-    
-    border-bottom-color: rgba(255, 205, 94, 1); 
-    border-left-color: rgba(255, 205, 94, 1);
-    transition:
-     
-      border-color 0s ease-out 0.5s, 
-      width 0.25s ease-out 0.5s, 
-      height 0.25s ease-out 0.75s; 
-  }
-}
 
 
 

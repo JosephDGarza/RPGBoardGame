@@ -5,7 +5,7 @@
 <head>
 <link href="resources/Battles.css" type="text/css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Battle</title>
+<title>RPGBoard Battle</title>
 
 </head>
 
@@ -47,54 +47,46 @@ ${imgurl}
 <div class="div2">
 			<h3>Player stats</h3>
 			<ul class="bargraph"><br> 
-			${playerName}'s  hp <li class="reddeep" style="width: 100%;"><span id="pbar"></span> <span id="playerhp"></span> 
+			${playerName}'s  Hp <li class="reddeep" style="width: 100%;"><span id="pbar"></span> <span id="playerhp"></span> 
 			</li> ${playerCharacter}<br>${playerStr} Str<br> ${playerCrit} Crit<br>
 			${playerDodge} Dodge<br>
 			
 			</ul>
 		</div>
 
-		<div class="div3">
-			<input type="button" value="Attack"
+
+		
+	
+	<div class="attackButtons">
+	<input id="attack" type="button" class="attack" value="Attack"
 				onclick="attack(playerhp, playerstr, displayphp, enemyhp, enemystr, displayehp)">
-
+	<input type="hidden" class="attack" value="Ability holder">
+    <input type="hidden" class="attack" value="Ability holder">
+    </div>
+	<form action="boards" method="POST">
+	<input type="hidden" id="playerName" name="playerName" value="${playerName}">
+	<input type="hidden" id="playerCurrentHp" name="playerCurrentHp">
+	<input type="hidden" id="playerHp" name="playerHp" value="${playerHp}">
+	<input type="hidden" id="playerStr" name="playerStr">
+	<input type="hidden" id="playerCrit" name="playerCrit" value="${playerCrit}">
+	<input type="hidden" id="playerDodge" name="playerDodge" value="${playerDodge}">
+	<input type="hidden" id="tile" name="tile" value="${tile}">
+	<input type="hidden" id="diceroll" name="diceroll" >
+	<input type="hidden" id="rollCount" name="rollCount" value="${rollCount}">
+	<input type="hidden" id="playerCharacter" name="playerCharacter" value="${playerCharacter}">
+	
+		<div class="div3">
 			<h2 id="result"></h2>
-			<form action="boards" method="POST">
-			<input type="hidden" id="playerName" name="playerName" value="${playerName}">
-<input type="hidden" id="playerCurrentHp" name="playerCurrentHp">
-<input type="hidden" id="playerHp" name="playerHp" value="${playerHp}">
-<input type="hidden" id="playerStr" name="playerStr">
-<input type="hidden" id="playerCrit" name="playerCrit" value="${playerCrit}">
-<input type="hidden" id="playerDodge" name="playerDodge" value="${playerDodge}">
-<input type="hidden" id="tile" name="tile" value="${tile}">
-<input type="hidden" id="diceroll" name="diceroll" >
-<input type="hidden" id="rollCount" name="rollCount" value="${rollCount}">
-<input type="hidden" id="playerCharacter" name="playerCharacter" value="${playerCharacter}">
-
 			<span id ="continue"></span>
-			</form>
 			<ul class="info_border">
-<div class="info_header">
+			<div class="info_header">
 			<p id="CombatLog"></p>
-		</div>
-		</div>		
-	</div>
-		</ul>
+			</div>
+			</div>		
+			</ul>
 	
-	
-	
-	
-	
+</form>
 
-
-<!-- 
-<ul class="bargraph">
-    <li class="reddeep">XHTML / CSS</li>
-    <li class="greenbright" style="width: 80%;">Javascript</li>
-    
-</ul>
-
-  -->
 
 
 
@@ -195,7 +187,7 @@ ${imgurl}
 var anime = "<div id=\"texttohide\"> <img src=\https://image.ibb.co/fW4ZWb/Energyattack.gif\"\r\n" + 
 " 	width=\"500\" height=\"500\"></div> ";			
 document.getElementById("animation").innerHTML = anime;
-console.log(anime);
+
     
 var timePeriodInMs = 920;
 
@@ -214,7 +206,9 @@ var timePeriodInMs = 920;
 timePeriodInMs);
 
 			var plog= "";
-						var edodgechance = Math.floor((Math.random() * 100) + 1);
+			
+			<!-- This is the enemy dodge chance -->
+			var edodgechance = Math.floor((Math.random() * 100) + 1);
 			console.log("Enemy dodge chance is: " + edodge);
 			console.log("number generated for enemy dodge is: " + edodgechance);
 			console.log(edodgechance <= edodge);
@@ -222,15 +216,25 @@ timePeriodInMs);
 			plog = "Your attack missed "+ enemyname  + "<br>";
 			document.getElementById("CombatLog").innerHTML += plog
 			}
+			
+			<!-- else, enemy doesn't dodge -->
+			
 			else {
+			
+			
 			<!-- Crit rng -->
+			
 			 var crit = Math.floor((Math.random() * 100) + 1);
+			 console.log("this is the roll for crit: "+ crit);
 			 if(crit <= pcrit){
 			plog = "You critically hit "+ enemyname +" for " + dmg*2 + " damage!!! <br>";
 			document.getElementById("CombatLog").innerHTML += plog
 			enemyhp = enemyhp - dmg*2;
 						 }
+						 
+						 
 						 <!-- non crit, enemy hp affected here -->
+						 
 						 if (crit > pcrit){
 						 plog = "You hit "+ enemyname +" for " + dmg + " damage <br>";
 							document.getElementById("CombatLog").innerHTML += plog
@@ -244,6 +248,8 @@ timePeriodInMs);
 				
 				if(enemyname == "Heal"){
 			playerhp = playerhp*1 + 50;
+			
+			<!-- this limits heal amount to max health -->
 			if(playerhp > pmaxhp){
 			playerhp = pmaxhp;
 			}
@@ -271,6 +277,7 @@ timePeriodInMs);
 					document.getElementById("result").innerHTML = win;
 					document.getElementById("continue").innerHTML = next;
 					document.getElementById("diceroll").value = diceroll;
+					document.getElementById("attack").disabled=true;
 				} 
 				
 				<!--  else enemy is still alive -->
@@ -280,11 +287,13 @@ timePeriodInMs);
 				 var x = Math.floor((Math.random() * 100) + 1);
 					
 					<!--  enemy health bar  -->
+					
 				 	ebar = "<li class=\"greenbright\" style=\"width: " + (enemyhp/emaxhp*100) + "%;\">" +enemyhp + "/" + emaxhp + "</li>";
 				displayebar.innerHTML = ebar;
 					
-						
-						 console.log("this is x " +x );
+						<!--  enemy miss chance -->
+						 console.log("this is enemy chance to miss plus dodge chance: " + emiss*1 +pdodge*1 );
+						 console.log("This is the number generated for miss: " +x ); 
 						 console.log(x <= emiss*1 + pdodge*1);
 						 if(x <= emiss*1 + pdodge*1){
 						 elog = emissScript + "<br><br>";
@@ -293,11 +302,10 @@ timePeriodInMs);
 						 if (x > emiss*1 + pdodge*1){
 						 
 						 <!-- player health bar on hit -->
+						 
 					playerhp = playerhp - enemystr;
 					pbar = "<li class=\"greenbright\" style=\"width: " + (playerhp/pmaxhp)*100 + "%;\">" +playerhp + "/" + pmaxhp + "</li>";
 					document.getElementById("pbar").innerHTML = pbar;
-					console.log(pbar);
-					console.log(playerhp/pmaxhp);
 					elog = eattack + enemystr + " damage<br><br>";
 					document.getElementById("CombatLog").innerHTML += elog;
 					
@@ -317,11 +325,6 @@ timePeriodInMs);
 				
 			
 					
-				console.log(displayphp.innerHTML);
-
-				
-			
-				console.log(playerhp);
 				}
 			}
 		}

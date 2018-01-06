@@ -6,7 +6,7 @@
 <link href="resources/index.css" type="text/css" rel="stylesheet">
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home Page</title>
+<title>RPGBoard Character Creation</title>
 </head>
 <body>
 

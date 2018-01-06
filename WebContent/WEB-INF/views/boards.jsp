@@ -6,7 +6,7 @@
 <link href="resources/board.css" type="text/css" rel="stylesheet">
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Congrats</title>
+<title>RPGBoard</title>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
 
 
 
-<!-- thi   -->
+
 
 <div id="picture1">
  <img
@@ -362,9 +362,7 @@ function rollFunction() {
 var rolled = document.getElementById("rolled").value
 var roll = document.getElementById("roll").value;
 var dice = document.getElementById("dicerolled").value;
-var battle = "<section class=\"buttons\">\r\n" + 
-"  <button class=\"draw\" >Continue Forward</button>\r\n" + 
-"</section>";
+var battle = "<button class=\"draw\">Continue Forward</button>";
 		
 		
 		document.getElementById("rollDisplay").innerHTML = "<br>" + rolled + "<br>" + roll;
