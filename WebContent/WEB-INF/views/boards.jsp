@@ -315,8 +315,8 @@ ${congrats}
 <div class="div2">
 			<h3>Player stats</h3>
 			<ul class="bargraph"><br> 
-			${playerName}'s  hp <li class="reddeep" style="width: 100%;"><span id="pbar"></span> <span id="playerhp"></span> 
-			</li> ${playerCharacter}<br>${playerStr} Str<br> ${playerCrit} Crit<br>
+			${playerName}'s  Hp <li class="reddeep" style="width: 100%;"><span id="pbar"></span> <span id="playerhp"></span> 
+			</li>${currentExp} / ${playerExp}Exp <br>Level ${level} ${playerCharacter}<br>${playerStr} Str<br> ${playerCrit} Crit<br>
 			${playerDodge} Dodge<br>
 			</ul>
 		</div>
@@ -341,6 +341,9 @@ ${congrats}
 <input type="hidden" id="tile"	name="tile" value="${tile}">
 <input type="hidden" id="rollCount" name="rollCount" value="${rollCount}">
 <input type="hidden" id="playerCharacter" name="playerCharacter" value="${playerCharacter}">
+<input type="hidden" id="playerExp" name="playerExp" value="${playerExp}">
+<input type="hidden" id="currentExp" name="currentExp" value="${currentExp}">
+<input type="hidden" id="level" name="level" value="${level}">
 
 <input type="hidden" id="diceroll" name="diceroll" value="${diceroll}">
 		</form>

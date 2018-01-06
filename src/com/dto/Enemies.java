@@ -29,6 +29,7 @@ public class Enemies {
 		scrub.setAttack("Scrub gives you a prostate exam for ");
 		scrub.setMiss(5);
 		scrub.setMissScript("Forgot to wear his gloves today, so no prostate exam! No damage taken");
+		scrub.setExp(100);
 		
 		
 		EnemyDto frog = new EnemyDto();
@@ -43,6 +44,7 @@ public class Enemies {
 		frog.setAttack("Frog King chokes you with his chain for ");
 		frog.setMiss(5);
 		frog.setMissScript("Frog King broke his chain! No damage taken");
+		frog.setExp(150);
 		
 		EnemyDto smiley = new EnemyDto();
 		smiley.setHp(15);
@@ -56,6 +58,7 @@ public class Enemies {
 		smiley.setAttack("Smiley viciously tears your flesh with his braces for ");
 		smiley.setMiss(5);
 		smiley.setMissScript("Smiley broke his braces on you! No damage taken");
+		smiley.setExp(100);
 		
 		
 		EnemyDto fireelmo = new EnemyDto();
@@ -70,6 +73,7 @@ public class Enemies {
 		fireelmo.setAttack("Fire Elmo brings you to where all of semestry street went... For ");
 		fireelmo.setMiss(2);
 		fireelmo.setMissScript("Hell froze over! No damage taken");
+		fireelmo.setExp(150);
 		
 		
 		EnemyDto trex  = new EnemyDto();
@@ -84,6 +88,7 @@ public class Enemies {
 		trex.setAttack("Baddass Trex disrespects you. Instead of shooting you, he slaps you with his tiny arms for ");
 		trex.setMiss(10);
 		trex.setMissScript("Baddass Trex couldn't reach. No damage taken");
+		trex.setExp(125);
 		
 		EnemyDto cuteKitten = new EnemyDto();
 		cuteKitten.setHp(20);
@@ -96,6 +101,7 @@ public class Enemies {
 		cuteKitten.setAttack("The kitten is actually the devil. He stabs you with his pitch fork for ");
 		cuteKitten.setMiss(5);
 		cuteKitten.setMissScript("The kitten decided it was nap time. No damage taken");
+		cuteKitten.setExp(110);
 		
 		EnemyDto heart = new EnemyDto();
 		heart.setHp(1);
@@ -108,6 +114,7 @@ public class Enemies {
 		heart.setAttack("You've been healed for 50 health!");
 		heart.setMiss(0);
 		heart.setMissScript("");
+		heart.setExp(0);
 		
 		EnemyDto alien = new EnemyDto();
 		alien.setHp(30);
@@ -120,6 +127,7 @@ public class Enemies {
 		alien.setAttack("Boss Alien dropped a bottle on you. He doesn't care. His ignorance hits you for ");
 		alien.setMiss(7);
 		alien.setMissScript("You went into another isle. No damage taken");
+		alien.setExp(110);
 		
 		
 		
@@ -135,7 +143,7 @@ public class Enemies {
 		mikeWazowski.setAttack("Mike Wazowski accidentally gets eye juice on you. The disgust hurts you for ");
 		mikeWazowski.setMiss(5);
 		mikeWazowski.setMissScript("Mike Wazowski had his glasses on today. No disgusting eye juice on you. No damage taken");
-		
+		mikeWazowski.setExp(75);
 		
 		EnemyDto tickleMonster  = new EnemyDto();
 		tickleMonster.setHp(25);
@@ -148,7 +156,7 @@ public class Enemies {
 		tickleMonster.setAttack("Mr. Tickles tickles you. You pee your pants for ");
 		tickleMonster.setMiss(5);
 		tickleMonster.setMissScript("Mr. Tickles couldn't find your tickle spot. No damage taken");
-		
+		tickleMonster.setExp(100);
 		
 		EnemyDto superman  = new EnemyDto();
 		superman.setHp(60);
@@ -161,7 +169,7 @@ public class Enemies {
 		superman.setAttack("Underwear guy retaliates, you fly accross the world for ");
 		superman.setMiss(60);
 		superman.setMissScript("Underwear guy acts like you're not even there as you hit him. No damage taken");
-		
+		superman.setExp(125);
 		
 		EnemyDto spongebob  = new EnemyDto();
 		spongebob.setHp(40);
@@ -174,6 +182,7 @@ public class Enemies {
 		spongebob.setAttack("Funny Pants makes you laugh so hard your stomach hurts for ");
 		spongebob.setMiss(5);
 		spongebob.setMissScript("This episode of SpongeBob sucked. No laughter, no damage taken");
+		spongebob.setExp(125);
 		
 		EnemyDto arm  = new EnemyDto();
 		arm.setHp(1);
@@ -186,7 +195,7 @@ public class Enemies {
 		arm.setAttack("You have gained 1+str ");
 		arm.setMiss(0);
 		arm.setMissScript("");
-		
+		arm.setExp(0);
 		
 		EnemyDto theFlash  = new EnemyDto();
 		theFlash.setHp(35);
@@ -199,7 +208,7 @@ public class Enemies {
 		theFlash.setAttack("You're not sure what happened. But there's a hand print on your rear end for ");
 		theFlash.setMiss(1);
 		theFlash.setMissScript("Did he move? No damage taken");
-		
+		theFlash.setExp(125);
 		
 		EnemyDto deante  = new EnemyDto();
 		deante.setHp(30);
@@ -211,6 +220,7 @@ public class Enemies {
 		deante.setAttack("He calls you fat. Your self esteem is hurt for ");
 		deante.setMiss(8);
 		deante.setMissScript("His insult made no sense. No damage taken");
+		deante.setExp(110);
 		
 		EnemyDto rollback = new EnemyDto();
 		rollback.setHp(1);
@@ -223,6 +233,7 @@ public class Enemies {
 		rollback.setAttack("You're sent back squares ");
 		rollback.setMiss(0);
 		rollback.setMissScript("");
+		rollback.setExp(0);
 		
 		EnemyDto car = new EnemyDto();
 		car.setHp(75);
@@ -235,6 +246,7 @@ public class Enemies {
 		car.setAttack("Don't know why Ryu and Ken fight this car. Your hands hurt for ");
 		car.setMiss(5);
 		car.setMissScript("You punched the soft seats. Is that leather? No damage taken");
+		car.setExp(150);
 		
 		
 		ArrayList<EnemyDto> data = new ArrayList<EnemyDto>();

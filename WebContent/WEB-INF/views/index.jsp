@@ -72,6 +72,7 @@ ${crit} <br>
 <input type="submit" value="Create Character">
 <p id="demo"></p>
 
+<input type="hidden" id="playerExp" name="playerExp" value="550">
 <input type="hidden" id="playerCurrentHp" name="playerCurrentHp">
 <input type="hidden" id="playerHp" name="playerHp">
 <input type="hidden" id="playerStr" name="playerStr">
@@ -81,6 +82,9 @@ ${crit} <br>
 <input type="hidden" id="diceroll" name="diceroll" value="0">
 <input type="hidden" id="rollCount" name="rollCount" value="0">
 <input type="hidden" id="playerCharacter" name="playerCharacter">
+
+<input type="hidden" id="currentExp" name="currentExp" value="0">
+<input type="hidden" id="level" name="level" value="1">
 </form>
 
 </div>

@@ -16,6 +16,7 @@ public class EnemyDto extends CharacterDto implements Serializable{
 	private String missScript;
 	private String imgurl; 
 	private String attack;
+	int exp;
 //	private int id;
 //	private String name;
 //	private int hp;
@@ -85,6 +86,21 @@ public class EnemyDto extends CharacterDto implements Serializable{
 		this.dodge=dodge;
 		
 	}
+	public EnemyDto(int str, String imgurl, int id, String name, int hp, int currentHp, String attack, int miss, String missScript, int dodge, int exp) {
+		super();
+		this.str = str;
+		this.imgurl = imgurl;
+		this.setHp(currentHp);
+		this.setName(name);
+		this.setCurrentHp(currentHp);
+		this.setId(id);
+		this.attack = attack;
+		this.miss= miss;
+		this.missScript = missScript;
+		this.dodge=dodge;
+		this.exp=exp;
+		
+	}
 
 
 
@@ -117,6 +133,18 @@ public class EnemyDto extends CharacterDto implements Serializable{
 	}
 
 	
+	public int getExp() {
+		return exp;
+	}
+
+
+
+	public void setExp(int exp) {
+		this.exp = exp;
+	}
+
+
+
 	public String getMissScript() {
 		return missScript;
 	}

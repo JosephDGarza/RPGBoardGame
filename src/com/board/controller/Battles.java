@@ -26,8 +26,11 @@ public class Battles {
 			@RequestParam(value = "playerHp") int playerHp, @RequestParam(value = "playerStr") int playerStr,
 			@RequestParam(value = "playerCrit") int playerCrit, @RequestParam(value = "playerDodge") int playerDodge,
 			@RequestParam(value = "diceroll") int diceroll, @RequestParam(value = "tile") int tile,
-			@RequestParam(value = "rollCount") int rollCount, @RequestParam(value = "playerCharacter") String playerCharacter) {
-	
+			@RequestParam(value = "rollCount") int rollCount,
+			@RequestParam(value = "playerCharacter") String playerCharacter,
+			@RequestParam(value = "playerExp") int playerExp, @RequestParam(value = "currentExp") int currentExp,
+			@RequestParam(value = "level") int level) {
+
 		System.out.println("diceroll");
 		String congrats = "<h1>Congratulations, you have defeated the frog king!</h1>";
 		Configuration cfg = new Configuration();
@@ -47,14 +50,13 @@ public class Battles {
 		int miss = 0;
 		String missScript = "";
 		String attack = "";
-		int dodge=0;
-		Object[] obj = new Object[10];
+		int dodge = 0;
+		int exp =0;
+		Object[] obj = new Object[11];
 
-
-		
-		//Selecting the battle based on the tile location
-		
-		String query = "select id,imgurl,name,str,hp,currentHp,miss,missScript,attack,dodge from EnemyDto WHERE id = '"
+		// Selecting the battle based on the tile location
+		System.out.println(tile);
+		String query = "select id,imgurl,name,str,hp,currentHp,miss,missScript,attack,dodge, exp from EnemyDto WHERE id = '"
 				+ tile + "'";
 
 		System.out.println(query);
@@ -67,7 +69,6 @@ public class Battles {
 		List<EnemyDto> list = new ArrayList<EnemyDto>();
 		while (i.hasNext()) {
 
-
 			obj = (Object[]) i.next();
 			id = (int) obj[0];
 			imgurl = (String) obj[1];
@@ -79,64 +80,67 @@ public class Battles {
 			missScript = (String) obj[7];
 			attack = (String) obj[8];
 			dodge = (int) obj[9];
-			
-			
-			//increasing difficult after going round the board
+			exp = (int) obj[10];
+			System.out.println(exp);
+
+			// increasing difficult after going round the board
 			if (diceroll > 17) {
-				str = (int) (str*1.30);
-				hp = (int) (hp *1.30);
-				currentHp = (int) (currentHp*1.30);
-				
+				str = (int) (str * 1.30);
+				hp = (int) (hp * 1.30);
+				currentHp = (int) (currentHp * 1.30);
+
 			}
-			
+
 			if (diceroll > 34) {
-				str = (int) (str*1.30);
-				hp = (int) (hp *1.30);
-				currentHp = (int) (currentHp*1.30);
+				str = (int) (str * 1.30);
+				hp = (int) (hp * 1.30);
+				currentHp = (int) (currentHp * 1.30);
 			}
-			
+
 			if (diceroll > 51) {
-				str = (int) (str*1.25);
-				hp = (int) (hp *1.25);
-				currentHp = (int) (currentHp*1.25);
+				str = (int) (str * 1.25);
+				hp = (int) (hp * 1.25);
+				currentHp = (int) (currentHp * 1.25);
 			}
 			if (diceroll > 68) {
-				str = (int) (str*1.25);
-				hp = (int) (hp *1.25);
-				currentHp = (int) (currentHp*1.25);
+				str = (int) (str * 1.25);
+				hp = (int) (hp * 1.25);
+				currentHp = (int) (currentHp * 1.25);
 			}
 
 			System.out.println(name);
-			list.add(new EnemyDto(str, imgurl, id, name, hp, currentHp, attack, miss, missScript, dodge));
+			list.add(new EnemyDto(str, imgurl, id, name, hp, currentHp, attack, miss, missScript, dodge, exp));
+			list.add(new EnemyDto(str, imgurl, id, name, hp, currentHp, attack, miss, missScript, dodge, exp));
 		}
-		
-/*		REMOVED RANDOM BACKGROUND GENERATOR DUE TO HORRIBLE RESPONSE TIME
-		
-		
-		*/
-//		String background ="";
-//		query ="select stageimg from BackgroundDto order by rand()";
-//		Object[] objImg = new Object[1];
-//		
-//		q2 = s.createQuery(query);
-//
-//		q2.setFirstResult(0);
-//		q2.setMaxResults(1);
-//		List backgroundResults = q2.list();
-//		i = results.iterator();
-//		List<BackgroundDto> Background = new ArrayList<BackgroundDto>();
-//		while (i.hasNext()) {
-//			background = (String) objImg[0];
-//			Background.add(new BackgroundDto(background));
-//		}
-//		
-		
-		
-		
+
+		/*
+		 * REMOVED RANDOM BACKGROUND GENERATOR DUE TO HORRIBLE RESPONSE TIME
+		 * 
+		 * 
+		 */
+		// String background ="";
+		// query ="select stageimg from BackgroundDto order by rand()";
+		// Object[] objImg = new Object[1];
+		//
+		// q2 = s.createQuery(query);
+		//
+		// q2.setFirstResult(0);
+		// q2.setMaxResults(1);
+		// List backgroundResults = q2.list();
+		// i = results.iterator();
+		// List<BackgroundDto> Background = new ArrayList<BackgroundDto>();
+		// while (i.hasNext()) {
+		// background = (String) objImg[0];
+		// Background.add(new BackgroundDto(background));
+		// }
+		//
 
 		s.flush();
 		s.close();
-//		model.addAttribute("background", background);
+		// model.addAttribute("background", background);
+		model.addAttribute("playerExp", playerExp);
+		model.addAttribute("currentExp", currentExp);
+		model.addAttribute("level", level);
 		model.addAttribute("playerCharacter", playerCharacter);
 		model.addAttribute("playerName", playerName);
 		model.addAttribute("playerHp", playerHp);
@@ -145,9 +149,10 @@ public class Battles {
 		model.addAttribute("playerStr", playerStr);
 		model.addAttribute("playerDodge", playerDodge);
 		model.addAttribute("diceroll", diceroll);
-		model.addAttribute("tile",tile);
-		model.addAttribute("rollCount",rollCount);
+		model.addAttribute("tile", tile);
+		model.addAttribute("rollCount", rollCount);
 
+		model.addAttribute("exp", exp);
 		model.addAttribute("id", id);
 		model.addAttribute("imgurl", imgurl);
 		model.addAttribute("name", name);
