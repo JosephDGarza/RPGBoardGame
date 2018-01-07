@@ -311,7 +311,7 @@
 
 
 
-${congrats}
+
 <div class="div2">
 			<h3>Player stats</h3>
 			<ul class="bargraph"><br> 

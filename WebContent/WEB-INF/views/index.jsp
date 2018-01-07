@@ -20,7 +20,7 @@ Str 3 <br><br>
 Crit 2% <br><br>
 Dodge 2% </p>
 <h3>Select Your Character:</h3>
-<form onsubmit="myFunction();"action="boards" method="POST">
+<form onsubmit="myFunction();"action="hardboard" method="POST">
 <input type="radio" id="btnControl" name="character" value="Warrior"/>
 <label class="btn" for="btnControl"><img src="https://orig00.deviantart.net/851f/f/2013/321/0/8/redeemed_riven_transparent_background_by_77silentcrow-d6uocse.png" width="108" height="150" id="btnLeft" /></label>
 <div class="reveal-if-active">
@@ -82,7 +82,7 @@ ${crit} <br>
 <input type="hidden" id="diceroll" name="diceroll" value="0">
 <input type="hidden" id="rollCount" name="rollCount" value="0">
 <input type="hidden" id="playerCharacter" name="playerCharacter">
-
+<input type="hidden" id="playerPortrait" name="playerPortrait">
 <input type="hidden" id="currentExp" name="currentExp" value="0">
 <input type="hidden" id="level" name="level" value="1">
 </form>
@@ -247,6 +247,7 @@ alert ("You must choose a character");
    if (document.getElementById("btnControl").checked){
    character = document.getElementById("btnControl").value;
   document.getElementById("playerCharacter").value = character
+    document.getElementById("playerPortrait").value = "<img src=\"resources/images/Character1.png\" height=\"50\" width=\"50\">"
 
   
   }
@@ -256,6 +257,7 @@ alert ("You must choose a character");
   document.getElementById("playerCharacter").value = character
     document.getElementById("playerCrit").value = pct*1 +4;
   document.getElementById("playerDodge").value = pdodge*1+4;
+  document.getElementById("playerPortrait").value = "<img src=\"resources/images/Character2.png\" height=\"50\" width=\"50\">"
   }
   
 

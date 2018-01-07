@@ -232,7 +232,7 @@ public class Enemies2 {
 		Rifleman.setAttack("You were shot by a musket for ");
 		Rifleman.setMiss(12);
 		Rifleman.setMissScript("Reloading that old school musket. No damage taken");
-		Rifleman.setExp(0);
+		Rifleman.setExp(150);
 		
 		
 		
